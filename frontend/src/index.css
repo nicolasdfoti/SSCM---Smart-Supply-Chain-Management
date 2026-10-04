@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  /* SSCM Brand Colors */
+  --sscm-primary: #002840;
+  --sscm-secondary: #004b68;
+  --sscm-accent: #087ea4;
+  --sscm-neutral-50: #f7fafc;
+  --sscm-neutral-100: #ffffff;
+  --sscm-neutral-500: #64748b;
+  --sscm-neutral-300: #cbd5e1;
+  --sscm-neutral-200: #e2e8f0;
+  --sscm-text: #334155;
+  --sscm-text-heading: #002840;
+  --sscm-bg: #ffffff;
+  --sscm-bg-alt: #f7fafc;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-optical-sizing: auto;
+  font-size: 16px;
+  line-height: 150%;
+  font-weight: 400;
+  color: var(--sscm-text);
+  background-color: var(--sscm-bg);
+  margin: 0;
+  padding: 0;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--sscm-text-heading);
+  font-weight: 600;
+  margin: 0;
+}
+
+h1 {
+  font-size: clamp(2.5rem, 8vw, 4rem);
+  line-height: 100%;
+  letter-spacing: -0.02em;
+}
+
+h2 {
+  font-size: clamp(1.5rem, 5vw, 2.25rem);
+  line-height: 118%;
+  letter-spacing: -0.02em;
+}
+
+h3 {
+  font-size: clamp(1.25rem, 4vw, 1.75rem);
+  line-height: 118%;
+}
+
+p {
+  margin: 0;
+  line-height: 1.6;
+}
