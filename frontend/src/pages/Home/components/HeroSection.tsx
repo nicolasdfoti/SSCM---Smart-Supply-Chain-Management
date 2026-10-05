@@ -2,13 +2,14 @@ import { Link } from 'react-router-dom';
 import { ArrowRight } from 'lucide-react';
 import { Button } from '../../../components/ui/Button';
 import { Container } from '../../../components/ui/Container';
+import heroImage from '../../../assets/images/hero.jpg';
 
 export function HeroSection() {
   return (
     <section className="relative overflow-hidden bg-[#002840] pb-24 pt-16 lg:pb-32 lg:pt-24">
       <div className="absolute inset-0 opacity-60">
         <img
-          src="/hero.png"
+          src={heroImage}
           alt=""
           aria-hidden
           className="absolute inset-0 h-full w-full object-cover"
