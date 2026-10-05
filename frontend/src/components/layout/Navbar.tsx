@@ -18,7 +18,7 @@ export function Navbar() {
   const closeMenu = () => setMobileOpen(false);
 
   return (
-    <header className="bg-[#002840] shadow-sm">
+    <header className="sticky top-0 z-50 bg-[#002840] shadow-sm">
       <Container>
         <div className="flex h-20 items-center justify-between gap-6">
           <Link

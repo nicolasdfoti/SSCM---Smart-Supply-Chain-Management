@@ -91,27 +91,13 @@ sscm/
 ├── README.md
 ├── .env.example
 └── .gitignore
+```
 
-Frontend
-
-The React application lives inside /frontend.
-
-Backend
-
-The FastAPI application will live inside /backend.
-
-Database
-
-Database-related configuration, documentation, or infrastructure will live inside /database when required.
-
-Documentation
-
-Project documentation will live inside /docs.
-
-5. Frontend Architecture
+## 5. Frontend Architecture
 
 The frontend follows a simple component-based architecture.
 
+```text
 src/
 ├── assets/
 ├── components/
@@ -123,19 +109,22 @@ src/
 ├── App.tsx
 ├── main.tsx
 └── index.css
-assets/
+```
+
+### assets/
 
 Static frontend assets such as:
 
-Logo
-Brand assets
-Images
-Illustrations
+- Logo
+- Brand assets
+- Images
+- Illustrations
 
 Brand assets belong inside:
 
-src/assets/brand/
-components/
+`src/assets/brand/`
+
+### components/
 
 Reusable UI components.
 
@@ -143,68 +132,69 @@ Components should be created when they are actually reusable or represent a mean
 
 Do not create components solely to reduce file size.
 
-components/layout/
+#### components/layout/
 
 Reusable global layout components such as:
 
-Navbar
-Footer
-Header
-Navigation elements
-components/ui/
+- Navbar
+- Footer
+- Header
+- Navigation elements
+
+#### components/ui/
 
 Generic reusable UI components such as:
 
-Button
-Input
-Card
-Modal
+- Button
+- Input
+- Card
+- Modal
 
 Only create these components when they are actually needed.
 
-layouts/
+### layouts/
 
 Page-level layout structures.
 
 Examples:
 
-PublicLayout
-AdminLayout
+- PublicLayout
+- AdminLayout
 
 Do not create layouts until they are required.
 
-pages/
+### pages/
 
 Top-level route pages.
 
 Examples:
 
-Home
-About
-Services
-Contact
-Login
-Dashboard
+- Home
+- About
+- Services
+- Contact
+- Login
+- Dashboard
 
 Pages should compose components instead of containing unnecessarily large amounts of reusable UI code.
 
-routes/
+### routes/
 
 Application routing configuration.
 
 All route definitions should be centralized here.
 
-services/
+### services/
 
 Communication with external APIs and backend services.
 
 API requests should not be scattered directly throughout UI components.
 
-types/
+### types/
 
 Shared TypeScript types and interfaces.
 
-6. Frontend Principles
+## 6. Frontend Principles
 
 The frontend should prioritize:
 
@@ -225,7 +215,7 @@ Do not introduce unnecessary dependencies.
 
 Do not create files, folders, hooks, contexts, services, or abstractions without a concrete use case.
 
-7. Routing
+## 7. Routing
 
 React Router will be used for application routing.
 
@@ -246,7 +236,7 @@ Authentication and protected routes will be implemented in a later phase.
 
 Do not implement authentication during the initial frontend setup.
 
-8. API Architecture
+## 8. API Architecture
 
 The frontend must not hardcode backend URLs throughout components.
 
@@ -265,7 +255,7 @@ Environment-specific API URLs must use environment variables.
 
 Never hardcode production secrets or credentials.
 
-9. Brand Identity
+## 9. Brand Identity
 
 The company name is:
 
@@ -308,7 +298,7 @@ These values are starting points, not immutable requirements.
 
 The final visual system should be consistent across the website.
 
-10. Design Principles
+## 10. Design Principles
 
 The website should have a modern B2B corporate aesthetic.
 
@@ -335,7 +325,7 @@ Decorative elements that do not support the business message
 
 The website should look like a real international supply chain company, not a generic template.
 
-11. Responsive Design
+## 11. Responsive Design
 
 All public pages must work correctly on:
 
@@ -350,7 +340,7 @@ Navigation must be usable on small screens.
 
 Forms must remain accessible and usable on mobile devices.
 
-12. Accessibility
+## 12. Accessibility
 
 Follow basic accessibility best practices:
 
@@ -365,7 +355,7 @@ Buttons for actions and links for navigation
 
 Do not sacrifice accessibility for visual effects.
 
-13. SEO
+## 13. SEO
 
 The public website should be structured with SEO in mind.
 
@@ -379,7 +369,7 @@ Descriptive URLs
 
 Do not implement an advanced SEO system unless required.
 
-14. Security
+## 14. Security
 
 Never commit:
 
@@ -396,7 +386,7 @@ The .env file must be ignored by Git.
 
 Never expose backend secrets in frontend code.
 
-15. Backend Principles
+## 15. Backend Principles
 
 When backend development begins:
 
@@ -407,7 +397,7 @@ Use Alembic for database migrations.
 Keep business logic outside route handlers when appropriate.
 Validate all external input.
 Never manually modify production database schemas when a migration is required.
-16. Database Principles
+## 16. Database Principles
 
 PostgreSQL will be the primary database.
 
@@ -432,7 +422,7 @@ LOST
 
 These are subject to change when the business requirements are finalized.
 
-17. Contact Form
+## 17. Contact Form
 
 The public contact form will eventually collect information such as:
 
@@ -464,7 +454,7 @@ Email notification
 
 Never rely exclusively on frontend validation.
 
-18. Admin Dashboard
+## 18. Admin Dashboard
 
 The administrative dashboard will be implemented in a later phase.
 
@@ -480,7 +470,7 @@ Basic business metrics
 
 Do not implement the admin dashboard until the public website foundation is stable.
 
-19. Development Workflow
+## 19. Development Workflow
 
 Before modifying code:
 
@@ -508,7 +498,7 @@ Run the frontend build when frontend code changes.
 Fix errors introduced by the implementation.
 Report what changed.
 Report any remaining issues.
-20. Important OpenCode Rule
+## 20. Important OpenCode Rule
 
 Do not make architectural decisions that are not required by the current task.
 
