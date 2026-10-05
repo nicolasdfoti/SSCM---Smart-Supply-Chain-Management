@@ -1,5 +1,6 @@
 import { CheckCircle } from 'lucide-react';
 import { Container } from '../../../components/ui/Container';
+import heroImage from '../../../assets/images/hero.jpg';
 
 const VALUE_POINTS = [
   'Professional expertise in international supply chains',
@@ -32,7 +33,7 @@ export function AboutPreview() {
 
           <div className="relative h-80 overflow-hidden rounded-lg bg-[#002840]/10 lg:h-96">
             <img
-              src="/hero.png"
+              src={heroImage}
               alt=""
               aria-hidden
               className="h-full w-full object-cover"
