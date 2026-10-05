@@ -49,12 +49,17 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
     const classes = `inline-flex items-center justify-center rounded-md text-sm font-medium ${BASE_TRANSITION} ${HOVER_LIFT} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#087ea4] disabled:pointer-events-none disabled:hover:translate-y-0 ${VARIANTS[variant]} ${SIZES[size]} ${className}`;
 
     if (asChild) {
-      const child = isValidElement<{ className?: string }>(children) ? children : null;
+      const child = isValidElement<{ className?: string; ref?: React.Ref<unknown> }>(
+        children
+      )
+        ? children
+        : null;
       if (child) {
         return cloneElement(child, {
           className: [child.props.className, classes].filter(Boolean).join(' '),
+          ref,
           ...props,
-        });
+        } as any);
       }
     }
 

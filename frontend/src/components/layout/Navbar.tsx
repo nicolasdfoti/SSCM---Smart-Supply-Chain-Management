@@ -36,9 +36,9 @@ export function Navbar() {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `text-sm font-medium transition-colors hover:text-white/90 ${
+                  `text-sm font-medium transition-colors hover:text-white/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80 ${
                     isActive || location.pathname === link.to
-                      ? 'text-white'
+                      ? 'text-white underline decoration-white/80 underline-offset-4'
                       : 'text-white/80'
                   }`
                 }

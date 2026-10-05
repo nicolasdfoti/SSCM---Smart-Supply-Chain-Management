@@ -2,6 +2,8 @@ import { Link } from 'react-router-dom';
 import { Globe } from 'lucide-react';
 import { Container } from '../ui/Container';
 
+const YEAR = new Date().getFullYear();
+
 export function Footer() {
   return (
     <footer className="border-t border-slate-200 bg-[#002840] text-white">
@@ -34,7 +36,7 @@ export function Footer() {
         </div>
 
         <div className="mt-8 border-t border-white/10 pt-8 text-center text-sm text-white/60">
-          © 2026 SSCM. All rights reserved.
+          © {YEAR} SSCM. Todos los derechos reservados.
         </div>
       </Container>
     </footer>
