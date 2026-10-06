@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '../ui/Button';
@@ -14,7 +14,21 @@ export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
 
-  const closeMenu = () => setMobileOpen(false);
+  const closeMenu = useCallback(() => setMobileOpen(false), []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && mobileOpen) {
+        closeMenu();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileOpen, closeMenu]);
+
+  useEffect(() => {
+    closeMenu();
+  }, [location.pathname, closeMenu]);
 
   return (
     <header className="sticky top-0 z-50 bg-brand shadow-sm">
