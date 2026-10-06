@@ -5,3 +5,11 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# Generated files
+frontend/vercel.json
+frontend/public/robots.txt
+frontend/public/sitemap.xml
+frontend/public/og-image.png
+frontend/public/favicon.png
+frontend/public/apple-touch-icon.png

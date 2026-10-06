@@ -2,7 +2,10 @@ import {
   cloneElement,
   forwardRef,
   isValidElement,
+  useMemo,
   type ComponentPropsWithoutRef,
+  type Ref,
+  type RefCallback,
 } from 'react';
 
 type Variant = 'primary' | 'secondary' | 'outline' | 'ghost';
@@ -29,6 +32,19 @@ const SIZES: Record<Size, string> = {
 
 const BASE_TRANSITION = 'transition-colors duration-200';
 
+function mergeRefs<T>(...refs: Array<Ref<T> | undefined>): RefCallback<T> {
+  return (value) => {
+    refs.forEach((ref) => {
+      if (typeof ref === 'function') {
+        ref(value);
+      } else if (ref && typeof ref === 'object') {
+        // oxlint-disable-next-line react(refs) -- callback executed by React on mount/unmount, not during render
+        ref.current = value;
+      }
+    });
+  };
+}
+
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -44,20 +60,23 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const classes = `inline-flex items-center justify-center rounded-[var(--radius)] text-sm font-medium ${BASE_TRANSITION} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none ${VARIANTS[variant]} ${SIZES[size]} ${className}`;
 
-    if (asChild) {
-      const child = isValidElement<{ className?: string; ref?: React.Ref<unknown> }>(
-        children
-      )
-        ? children
-        : null;
-      if (child) {
-        return cloneElement(child, {
-          className: [child.props.className, classes].filter(Boolean).join(' '),
-          ref,
-          type,
-          ...props,
-        } as any);
-      }
+    const child = isValidElement<{ className?: string; ref?: Ref<unknown> }>(children)
+      ? children
+      : null;
+
+    const mergedRef = useMemo(
+      () => (child ? mergeRefs(child.props.ref, ref) : ref),
+      [child?.props.ref, ref, child]
+    );
+
+    if (asChild && child) {
+      return cloneElement(child, {
+        className: [child.props.className, classes].filter(Boolean).join(' '),
+        // oxlint-disable-next-line react(refs) -- mergedRef is a callback ref, not accessed during render
+        ref: mergedRef,
+        type,
+        ...props,
+      } as any);
     }
 
     return (

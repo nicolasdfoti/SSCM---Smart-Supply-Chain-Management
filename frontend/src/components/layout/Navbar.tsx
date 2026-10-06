@@ -1,4 +1,4 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '../ui/Button';
@@ -13,6 +13,7 @@ const NAV_LINKS = [
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const prevPathRef = useRef(location.pathname);
 
   const closeMenu = useCallback(() => setMobileOpen(false), []);
 
@@ -27,8 +28,11 @@ export function Navbar() {
   }, [mobileOpen, closeMenu]);
 
   useEffect(() => {
-    closeMenu();
-  }, [location.pathname, closeMenu]);
+    if (location.pathname !== prevPathRef.current) {
+      setMobileOpen(false);
+      prevPathRef.current = location.pathname;
+    }
+  }, [location.pathname]);
 
   return (
     <header className="sticky top-0 z-50 bg-brand shadow-sm">

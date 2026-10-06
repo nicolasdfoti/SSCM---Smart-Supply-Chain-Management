@@ -32,11 +32,10 @@ export default function About() {
             <SectionHeading title="Quién es SSCM" />
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-lg text-muted">
-                Smart Supply Chain Management nace para resolver la brecha entre
-                empresas que necesitan abastecerse y proveedores confiables en
-                mercados internacionales. Combinamos conocimiento de mercado,
-                red de contactos verificada y metodología propia para que cada
-                conexión sea segura, eficiente y duradera.
+                SSCM conecta empresas con proveedores y oportunidades comerciales
+                en China y mercados internacionales. Combinamos experiencia,
+                análisis y una red internacional de contactos para facilitar
+                conexiones de abastecimiento confiables.
               </p>
             </div>
           </Reveal>

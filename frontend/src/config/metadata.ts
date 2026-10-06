@@ -52,7 +52,7 @@ export const pageMetadata: Record<string, Metadata> = {
   '/about': {
     title: 'Nosotros — SSCM',
     description:
-      'Conoce a SSCM: experiencia, análisis y red internacional para conectar tu empresa con proveedores globales. Metodología propia para abastecimiento seguro y eficiente.',
+      'Conoce a SSCM: experiencia, análisis y red internacional para conectar tu empresa con proveedores globales. Facilitamos conexiones de abastecimiento confiables.',
     openGraph: {
       title: 'Nosotros — SSCM',
       description:

@@ -1,0 +1,2137 @@
+This file is a merged representation of the entire codebase, combined into a single document by Repomix.
+
+<file_summary>
+This section contains a summary of this file.
+
+<purpose>
+This file contains a packed representation of the entire repository's contents.
+It is designed to be easily consumable by AI systems for analysis, code review,
+or other automated processes.
+</purpose>
+
+<file_format>
+The content is organized as follows:
+1. This summary section
+2. Repository information
+3. Directory structure
+4. Repository files (if enabled)
+5. Multiple file entries, each consisting of:
+  - File path as an attribute
+  - Full contents of the file
+</file_format>
+
+<usage_guidelines>
+- This file should be treated as read-only. Any changes should be made to the
+  original repository files, not this packed version.
+- When processing this file, use the file path to distinguish
+  between different files in the repository.
+- Be aware that this file may contain sensitive information. Handle it with
+  the same level of security as you would the original repository.
+</usage_guidelines>
+
+<notes>
+- Some files may have been excluded based on .gitignore rules and Repomix's configuration
+- Binary files are not included in this packed representation. Please refer to the Repository Structure section for a complete list of file paths, including binary files
+- Files matching patterns in .gitignore are excluded
+- Files matching default ignore patterns are excluded
+- Files are sorted by Git change count (files with more changes are at the bottom)
+</notes>
+
+</file_summary>
+
+<directory_structure>
+public/
+  favicon.svg
+  icons.svg
+  robots.txt
+  sitemap.xml
+scripts/
+  generate-og-image.mjs
+  generate-seo.mjs
+src/
+  assets/
+    brand/
+      .gitkeep
+      logo.png
+  components/
+    layout/
+      .gitkeep
+      Footer.tsx
+      Navbar.tsx
+    ui/
+      .gitkeep
+      Button.tsx
+      Container.tsx
+      CTA.tsx
+      PageMetadata.tsx
+      Reveal.tsx
+      SectionHeading.tsx
+      Timeline.tsx
+  config/
+    metadata.ts
+    site.ts
+  layouts/
+    .gitkeep
+    PublicLayout.tsx
+  pages/
+    Contact/
+      components/
+        ContactForm.tsx
+        HeroContact.tsx
+    Home/
+      components/
+        AboutPreview.tsx
+        HeroSection.tsx
+    About.tsx
+    Contact.tsx
+    Home.tsx
+    NotFound.tsx
+  routes/
+    AppRoutes.tsx
+    ScrollToTop.tsx
+  services/
+    .gitkeep
+    api.ts
+    leads.service.ts
+  types/
+    .gitkeep
+    lead.ts
+  App.tsx
+  index.css
+  main.tsx
+.gitignore
+.oxlintrc.json
+index.html
+package.json
+README.md
+tsconfig.app.json
+tsconfig.json
+tsconfig.node.json
+vercel.json
+vite.config.ts
+</directory_structure>
+
+<files>
+This section contains the contents of the repository's files.
+
+<file path="public/favicon.svg">
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
+  <rect width="32" height="32" fill="#002840" rx="4"/>
+  <circle cx="16" cy="12" r="7" fill="none" stroke="white" stroke-width="1.5"/>
+  <path d="M16 5v14M9 12h14" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
+  <text x="16" y="26" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="7" font-weight="600" letter-spacing="0.5px">SSCM</text>
+</svg>
+</file>
+
+<file path="public/icons.svg">
+<svg xmlns="http://www.w3.org/2000/svg">
+  <symbol id="bluesky-icon" viewBox="0 0 16 17">
+    <g clip-path="url(#bluesky-clip)"><path fill="#08060d" d="M7.75 7.735c-.693-1.348-2.58-3.86-4.334-5.097-1.68-1.187-2.32-.981-2.74-.79C.188 2.065.1 2.812.1 3.251s.241 3.602.398 4.13c.52 1.744 2.367 2.333 4.07 2.145-2.495.37-4.71 1.278-1.805 4.512 3.196 3.309 4.38-.71 4.987-2.746.608 2.036 1.307 5.91 4.93 2.746 2.72-2.746.747-4.143-1.747-4.512 1.702.189 3.55-.4 4.07-2.145.156-.528.397-3.691.397-4.13s-.088-1.186-.575-1.406c-.42-.19-1.06-.395-2.741.79-1.755 1.24-3.64 3.752-4.334 5.099"/></g>
+    <defs><clipPath id="bluesky-clip"><path fill="#fff" d="M.1.85h15.3v15.3H.1z"/></clipPath></defs>
+  </symbol>
+  <symbol id="discord-icon" viewBox="0 0 20 19">
+    <path fill="#08060d" d="M16.224 3.768a14.5 14.5 0 0 0-3.67-1.153c-.158.286-.343.67-.47.976a13.5 13.5 0 0 0-4.067 0c-.128-.306-.317-.69-.476-.976A14.4 14.4 0 0 0 3.868 3.77C1.546 7.28.916 10.703 1.231 14.077a14.7 14.7 0 0 0 4.5 2.306q.545-.748.965-1.587a9.5 9.5 0 0 1-1.518-.74q.191-.14.372-.293c2.927 1.369 6.107 1.369 8.999 0q.183.152.372.294-.723.437-1.52.74.418.838.963 1.588a14.6 14.6 0 0 0 4.504-2.308c.37-3.911-.63-7.302-2.644-10.309m-9.13 8.234c-.878 0-1.599-.82-1.599-1.82 0-.998.705-1.82 1.6-1.82.894 0 1.614.82 1.599 1.82.001 1-.705 1.82-1.6 1.82m5.91 0c-.878 0-1.599-.82-1.599-1.82 0-.998.705-1.82 1.6-1.82.893 0 1.614.82 1.599 1.82 0 1-.706 1.82-1.6 1.82"/>
+  </symbol>
+  <symbol id="documentation-icon" viewBox="0 0 21 20">
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="m15.5 13.333 1.533 1.322c.645.555.967.833.967 1.178s-.322.623-.967 1.179L15.5 18.333m-3.333-5-1.534 1.322c-.644.555-.966.833-.966 1.178s.322.623.966 1.179l1.534 1.321"/>
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M17.167 10.836v-4.32c0-1.41 0-2.117-.224-2.68-.359-.906-1.118-1.621-2.08-1.96-.599-.21-1.349-.21-2.848-.21-2.623 0-3.935 0-4.983.369-1.684.591-3.013 1.842-3.641 3.428C3 6.449 3 7.684 3 10.154v2.122c0 2.558 0 3.838.706 4.726q.306.383.713.671c.76.536 1.79.64 3.581.66"/>
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M3 10a2.78 2.78 0 0 1 2.778-2.778c.555 0 1.209.097 1.748-.047.48-.129.854-.503.982-.982.145-.54.048-1.194.048-1.749a2.78 2.78 0 0 1 2.777-2.777"/>
+  </symbol>
+  <symbol id="github-icon" viewBox="0 0 19 19">
+    <path fill="#08060d" fill-rule="evenodd" d="M9.356 1.85C5.05 1.85 1.57 5.356 1.57 9.694a7.84 7.84 0 0 0 5.324 7.44c.387.079.528-.168.528-.376 0-.182-.013-.805-.013-1.454-2.165.467-2.616-.935-2.616-.935-.349-.91-.864-1.143-.864-1.143-.71-.48.051-.48.051-.48.787.051 1.2.805 1.2.805.695 1.194 1.817.857 2.268.649.064-.507.27-.857.49-1.052-1.728-.182-3.545-.857-3.545-3.87 0-.857.31-1.558.8-2.104-.078-.195-.349-1 .077-2.078 0 0 .657-.208 2.14.805a7.5 7.5 0 0 1 1.946-.26c.657 0 1.328.092 1.946.26 1.483-1.013 2.14-.805 2.14-.805.426 1.078.155 1.883.078 2.078.502.546.799 1.247.799 2.104 0 3.013-1.818 3.675-3.558 3.87.284.247.528.714.528 1.454 0 1.052-.012 1.896-.012 2.156 0 .208.142.455.528.377a7.84 7.84 0 0 0 5.324-7.441c.013-4.338-3.48-7.844-7.773-7.844" clip-rule="evenodd"/>
+  </symbol>
+  <symbol id="social-icon" viewBox="0 0 20 20">
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M12.5 6.667a4.167 4.167 0 1 0-8.334 0 4.167 4.167 0 0 0 8.334 0"/>
+    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M2.5 16.667a5.833 5.833 0 0 1 8.75-5.053m3.837.474.513 1.035c.07.144.257.282.414.309l.93.155c.596.1.736.536.307.965l-.723.73a.64.64 0 0 0-.152.531l.207.903c.164.715-.213.991-.84.618l-.872-.52a.63.63 0 0 0-.577 0l-.872.52c-.624.373-1.003.094-.84-.618l.207-.903a.64.64 0 0 0-.152-.532l-.723-.729c-.426-.43-.289-.864.306-.964l.93-.156a.64.64 0 0 0 .412-.31l.513-1.034c.28-.562.735-.562 1.012 0"/>
+  </symbol>
+  <symbol id="x-icon" viewBox="0 0 19 19">
+    <path fill="#08060d" fill-rule="evenodd" d="M1.893 1.98c.052.072 1.245 1.769 2.653 3.77l2.892 4.114c.183.261.333.48.333.486s-.068.089-.152.183l-.522.593-.765.867-3.597 4.087c-.375.426-.734.834-.798.905a1 1 0 0 0-.118.148c0 .01.236.017.664.017h.663l.729-.83c.4-.457.796-.906.879-.999a692 692 0 0 0 1.794-2.038c.034-.037.301-.34.594-.675l.551-.624.345-.392a7 7 0 0 1 .34-.374c.006 0 .93 1.306 2.052 2.903l2.084 2.965.045.063h2.275c1.87 0 2.273-.003 2.266-.021-.008-.02-1.098-1.572-3.894-5.547-2.013-2.862-2.28-3.246-2.273-3.266.008-.019.282-.332 2.085-2.38l2-2.274 1.567-1.782c.022-.028-.016-.03-.65-.03h-.674l-.3.342a871 871 0 0 1-1.782 2.025c-.067.075-.405.458-.75.852a100 100 0 0 1-.803.91c-.148.172-.299.344-.99 1.127-.304.343-.32.358-.345.327-.015-.019-.904-1.282-1.976-2.808L6.365 1.85H1.8zm1.782.91 8.078 11.294c.772 1.08 1.413 1.973 1.425 1.984.016.017.241.02 1.05.017l1.03-.004-2.694-3.766L7.796 5.75 5.722 2.852l-1.039-.004-1.039-.004z" clip-rule="evenodd"/>
+  </symbol>
+</svg>
+</file>
+
+<file path="public/robots.txt">
+User-agent: *
+Allow: /
+
+Sitemap: http://localhost:5173/sitemap.xml
+</file>
+
+<file path="public/sitemap.xml">
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>http://localhost:5173/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>http://localhost:5173/about</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>http://localhost:5173/contact</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+</urlset>
+</file>
+
+<file path="scripts/generate-og-image.mjs">
+import { readFileSync, existsSync } from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const publicDir = join(__dirname, '..', 'public');
+const assetsDir = join(__dirname, '..', 'src', 'assets', 'brand');
+
+const logoPath = join(assetsDir, 'logo.png');
+const outputPath = join(publicDir, 'og-image.png');
+
+if (!existsSync(logoPath)) {
+  console.log('Logo not found, skipping OG image generation');
+  process.exit(0);
+}
+
+try {
+  const sharp = (await import('sharp')).default;
+  const logoBuffer = readFileSync(logoPath);
+
+  await sharp({
+    create: {
+      width: 1200,
+      height: 630,
+      channels: 4,
+      background: '#002840',
+    },
+  })
+    .composite([
+      {
+        input: logoBuffer,
+        gravity: 'center',
+      },
+    ])
+    .png()
+    .toFile(outputPath);
+
+  console.log('Generated og-image.png (1200x630) with logo on #002840 background');
+} catch {
+  console.log('Sharp not available, skipping OG image generation');
+  console.log('Install sharp for production: npm install sharp --save-dev');
+}
+</file>
+
+<file path="scripts/generate-seo.mjs">
+import { readFileSync, writeFileSync, existsSync } from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const siteUrl = process.env.VITE_SITE_URL || 'http://localhost:5173';
+const publicDir = join(__dirname, '..', 'public');
+
+const files = ['robots.txt', 'sitemap.xml'];
+
+for (const file of files) {
+  const filePath = join(publicDir, file);
+  if (existsSync(filePath)) {
+    let content = readFileSync(filePath, 'utf-8');
+    content = content.replace(/\{\{SITE_URL\}\}/g, siteUrl);
+    writeFileSync(filePath, content);
+    console.log(`Generated ${file} with SITE_URL=${siteUrl}`);
+  }
+}
+</file>
+
+<file path="src/assets/brand/.gitkeep">
+
+</file>
+
+<file path="src/components/layout/.gitkeep">
+
+</file>
+
+<file path="src/components/layout/Footer.tsx">
+import { Link } from 'react-router-dom';
+import { Container } from '../ui/Container';
+
+const YEAR = new Date().getFullYear();
+
+export function Footer() {
+  return (
+    <footer className="border-t border-border bg-brand text-white">
+      <Container className="py-12">
+        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
+          <div className="flex items-center gap-2">
+            <div>
+              <div className="text-lg font-semibold">SSCM</div>
+              <div className="text-sm text-white/80">
+                Smart Supply Chain Management
+              </div>
+            </div>
+          </div>
+
+          <nav className="flex flex-wrap gap-6 text-sm">
+            <Link to="/" className="text-white/80 hover:text-white">
+              Inicio
+            </Link>
+            <Link to="/about" className="text-white/80 hover:text-white">
+              Nosotros
+            </Link>
+            <Link to="/contact" className="text-white/80 hover:text-white">
+              Contacto
+            </Link>
+          </nav>
+        </div>
+
+        <div className="mt-8 border-t border-white/10 pt-8 text-center text-sm text-white/60">
+          © {YEAR} SSCM. Todos los derechos reservados.
+        </div>
+      </Container>
+    </footer>
+  );
+}
+</file>
+
+<file path="src/components/layout/Navbar.tsx">
+import { useState, useEffect, useCallback } from 'react';
+import { Link, NavLink, useLocation } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
+import { Button } from '../ui/Button';
+import { Container } from '../ui/Container';
+
+const NAV_LINKS = [
+  { label: 'Inicio', to: '/' },
+  { label: 'Nosotros', to: '/about' },
+  { label: 'Contacto', to: '/contact' },
+];
+
+export function Navbar() {
+  const [mobileOpen, setMobileOpen] = useState(false);
+  const location = useLocation();
+
+  const closeMenu = useCallback(() => setMobileOpen(false), []);
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && mobileOpen) {
+        closeMenu();
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [mobileOpen, closeMenu]);
+
+  useEffect(() => {
+    closeMenu();
+  }, [location.pathname, closeMenu]);
+
+  return (
+    <header className="sticky top-0 z-50 bg-brand shadow-sm">
+      <Container>
+        <div className="flex h-20 items-center justify-between gap-6">
+          <Link
+            to="/"
+            className="flex items-center gap-2 text-white"
+            aria-label="SSCM - Inicio"
+          >
+            <span className="text-xl font-semibold sm:text-2xl">SSCM</span>
+          </Link>
+
+          <nav className="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+            {NAV_LINKS.map((link) => (
+              <NavLink
+                key={link.to}
+                to={link.to}
+                className={({ isActive }) =>
+                  `text-sm font-medium transition-colors hover:text-white/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
+                    isActive || location.pathname === link.to
+                      ? 'text-white underline decoration-white/80 underline-offset-4'
+                      : 'text-white/80'
+                  }`
+                }
+              >
+                {link.label}
+              </NavLink>
+            ))}
+          </nav>
+
+          <div className="hidden lg:flex items-center gap-4">
+            <Button asChild variant="secondary" size="sm">
+              <Link to="/contact">Contacto</Link>
+            </Button>
+          </div>
+
+          <button
+            type="button"
+            className="lg:hidden rounded-[var(--radius)] p-2 text-white hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            onClick={() => setMobileOpen(!mobileOpen)}
+            aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
+            aria-expanded={mobileOpen}
+            aria-controls="mobile-menu"
+          >
+            {mobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
+      </Container>
+
+      {mobileOpen && (
+        <div id="mobile-menu" className="lg:hidden border-t border-white/10 bg-brand">
+          <Container className="py-4">
+            <nav className="flex flex-col gap-4">
+              {NAV_LINKS.map((link) => (
+                <Link
+                  key={link.to}
+                  to={link.to}
+                  className="text-white/90 hover:text-white"
+                  onClick={closeMenu}
+                >
+                  {link.label}
+                </Link>
+              ))}
+              <Button asChild variant="secondary" size="sm" className="self-start">
+                <Link to="/contact" onClick={closeMenu}>
+                  Contacto
+                </Link>
+              </Button>
+            </nav>
+          </Container>
+        </div>
+      )}
+    </header>
+  );
+}
+</file>
+
+<file path="src/components/ui/.gitkeep">
+
+</file>
+
+<file path="src/components/ui/Button.tsx">
+import {
+  cloneElement,
+  forwardRef,
+  isValidElement,
+  type ComponentPropsWithoutRef,
+} from 'react';
+
+type Variant = 'primary' | 'secondary' | 'outline' | 'ghost';
+type Size = 'sm' | 'md' | 'icon';
+
+type ButtonProps = ComponentPropsWithoutRef<'button'> & {
+  variant?: Variant;
+  size?: Size;
+  asChild?: boolean;
+};
+
+const VARIANTS: Record<Variant, string> = {
+  primary: 'bg-brand text-white hover:bg-brand-2 disabled:bg-muted/20 disabled:text-muted',
+  secondary: 'bg-accent text-white hover:bg-brand-2 disabled:bg-muted/20 disabled:text-muted',
+  outline: 'border border-border text-heading hover:border-brand hover:text-brand disabled:text-muted',
+  ghost: 'text-text hover:text-brand disabled:text-muted',
+};
+
+const SIZES: Record<Size, string> = {
+  sm: 'px-4 py-2',
+  md: 'px-6 py-3',
+  icon: 'p-2',
+};
+
+const BASE_TRANSITION = 'transition-colors duration-200';
+
+const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  (
+    {
+      variant = 'primary',
+      size = 'md',
+      type = 'button',
+      className = '',
+      asChild = false,
+      children,
+      ...props
+    },
+    ref
+  ) => {
+    const classes = `inline-flex items-center justify-center rounded-[var(--radius)] text-sm font-medium ${BASE_TRANSITION} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none ${VARIANTS[variant]} ${SIZES[size]} ${className}`;
+
+    if (asChild) {
+      const child = isValidElement<{ className?: string; ref?: React.Ref<unknown> }>(
+        children
+      )
+        ? children
+        : null;
+      if (child) {
+        return cloneElement(child, {
+          className: [child.props.className, classes].filter(Boolean).join(' '),
+          ref,
+          type,
+          ...props,
+        } as any);
+      }
+    }
+
+    return (
+      <button ref={ref} type={type} className={classes} {...props}>
+        {children}
+      </button>
+    );
+  }
+);
+
+Button.displayName = 'Button';
+
+export { Button };
+</file>
+
+<file path="src/components/ui/Container.tsx">
+import type { ReactNode } from 'react';
+
+type ContainerProps = {
+  children: ReactNode;
+  className?: string;
+};
+
+export function Container({ children, className = '' }: ContainerProps) {
+  return (
+    <div className={`mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 ${className}`}>
+      {children}
+    </div>
+  );
+}
+</file>
+
+<file path="src/components/ui/CTA.tsx">
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import { Reveal } from './Reveal';
+import { Button } from './Button';
+import { Container } from './Container';
+
+interface CTAProps {
+  title: string;
+  subtitle: string;
+  buttonText: string;
+  href: string;
+  variant?: 'primary' | 'secondary';
+  centered?: boolean;
+}
+
+export function CTA({
+  title,
+  subtitle,
+  buttonText,
+  href,
+  variant = 'secondary',
+  centered = true,
+}: CTAProps) {
+  return (
+    <section className="bg-brand py-16">
+      <Container>
+        <Reveal className={centered ? 'text-center' : ''}>
+          <h2 className="mb-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
+            {title}
+          </h2>
+          <p className="mb-8 mx-auto max-w-2xl text-lg text-white/90 sm:text-xl">
+            {subtitle}
+          </p>
+          <Button asChild variant={variant} size="md">
+            <Link to={href}>
+              {buttonText}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Link>
+          </Button>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/ui/PageMetadata.tsx">
+import { useLocation } from 'react-router-dom';
+import { getMetadata } from '../../config/metadata';
+
+export function PageMetadata() {
+  const location = useLocation();
+  const metadata = getMetadata(location.pathname);
+
+  return (
+    <>
+      <title>{metadata.title}</title>
+      <meta name="description" content={metadata.description} />
+      <link rel="canonical" href={metadata.other?.canonical} />
+
+      <meta property="og:title" content={metadata.openGraph?.title} />
+      <meta property="og:description" content={metadata.openGraph?.description} />
+      <meta property="og:type" content={metadata.openGraph?.type} />
+      <meta property="og:url" content={metadata.openGraph?.url} />
+      <meta property="og:site_name" content={metadata.openGraph?.siteName} />
+      {metadata.openGraph?.images?.map((img: { url: string }, i: number) => (
+        <meta key={i} property="og:image" content={img.url} />
+      ))}
+      {metadata.openGraph?.images?.[0] && (
+        <>
+          <meta property="og:image:width" content={String(metadata.openGraph.images[0].width)} />
+          <meta property="og:image:height" content={String(metadata.openGraph.images[0].height)} />
+          <meta property="og:image:alt" content={metadata.openGraph.images[0].alt} />
+        </>
+      )}
+
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={metadata.openGraph?.title} />
+      <meta name="twitter:description" content={metadata.openGraph?.description} />
+      {metadata.openGraph?.images?.[0] && (
+        <meta name="twitter:image" content={metadata.openGraph.images[0].url} />
+      )}
+    </>
+  );
+}
+</file>
+
+<file path="src/components/ui/Reveal.tsx">
+import { motion, useReducedMotion } from 'framer-motion';
+import type { ReactNode } from 'react';
+
+interface RevealProps {
+  children: ReactNode;
+  delay?: number;
+  className?: string;
+  animateOnMount?: boolean;
+  viewportOnce?: boolean;
+  viewportMargin?: string;
+}
+
+const fadeUp = {
+  initial: { opacity: 0, y: 12 },
+  animate: { opacity: 1, y: 0 },
+  transition: { duration: 0.4 },
+};
+
+const fadeOnly = {
+  initial: { opacity: 0 },
+  animate: { opacity: 1 },
+  transition: { duration: 0.4 },
+};
+
+export function Reveal({
+  children,
+  delay = 0,
+  className = '',
+  animateOnMount = false,
+  viewportOnce = true,
+  viewportMargin = '-100px',
+}: RevealProps) {
+  const shouldReduceMotion = useReducedMotion();
+
+  const variants = shouldReduceMotion ? fadeOnly : fadeUp;
+
+  const transition = {
+    ...variants.transition,
+    delay,
+  };
+
+  if (animateOnMount) {
+    return (
+      <motion.div
+        initial={variants.initial}
+        animate={variants.animate}
+        transition={transition}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    );
+  }
+
+  return (
+    <motion.div
+      initial={variants.initial}
+      whileInView={variants.animate}
+      viewport={{ once: viewportOnce, margin: viewportMargin }}
+      transition={transition}
+      className={className}
+    >
+      {children}
+    </motion.div>
+  );
+}
+</file>
+
+<file path="src/components/ui/SectionHeading.tsx">
+type SectionHeadingProps = {
+  title: string;
+  subtitle?: string;
+  className?: string;
+};
+
+export function SectionHeading({
+  title,
+  subtitle,
+  className = '',
+}: SectionHeadingProps) {
+  return (
+    <div className={`mb-12 text-center ${className}`}>
+      <h2 className="text-3xl font-semibold text-heading sm:text-4xl">
+        {title}
+      </h2>
+      {subtitle && (
+        <p className="mt-4 text-lg text-muted">{subtitle}</p>
+      )}
+    </div>
+  );
+}
+</file>
+
+<file path="src/components/ui/Timeline.tsx">
+import { Reveal } from './Reveal';
+import { Container } from './Container';
+import { SectionHeading } from './SectionHeading';
+
+const TIMELINE_STEPS = [
+  {
+    number: '01',
+    title: 'Diagnóstico',
+    description:
+      'Entendemos la necesidad, el contexto y los objetivos para definir el alcance del caso.',
+  },
+  {
+    number: '02',
+    title: 'Análisis',
+    description:
+      'Evaluamos los requerimientos y alternativas para identificar el tipo de proveedor adecuado.',
+  },
+  {
+    number: '03',
+    title: 'Selección',
+    description:
+      'Identificamos y evaluamos proveedores potenciales utilizando nuestra red de contactos.',
+  },
+  {
+    number: '04',
+    title: 'Conexión',
+    description:
+      'Facilitamos el primer contacto y el inicio de la relación comercial entre las partes.',
+  },
+];
+
+export function Timeline() {
+  return (
+    <section className="bg-bg py-16">
+      <Container>
+        <SectionHeading
+          title="Cómo trabajamos"
+          subtitle="Un proceso claro para conectar tu empresa con el proveedor adecuado"
+        />
+        <div className="relative">
+          <div className="lg:hidden flex flex-col gap-8">
+            {TIMELINE_STEPS.map((step, index) => (
+              <Reveal key={step.number} delay={index * 0.1}>
+                <div className="flex items-start gap-4">
+                  <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-white font-semibold text-lg" aria-hidden>
+                    {step.number}
+                  </div>
+                  <div className="flex-1 pt-1">
+                    <h3 className="text-lg font-semibold text-heading">{step.title}</h3>
+                    <p className="mt-2 text-sm text-muted">{step.description}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+
+          <div className="hidden lg:flex lg:items-start lg:justify-between">
+            <div className="relative flex-1" aria-hidden>
+              <div className="absolute top-[30px] left-0 right-0 h-0.5 bg-border" />
+            </div>
+            {TIMELINE_STEPS.map((step, index) => (
+              <Reveal key={step.number} delay={index * 0.1}>
+                <div className="relative flex flex-col items-center flex-1 px-2">
+                  <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-white font-semibold text-lg z-10" aria-hidden>
+                    {step.number}
+                  </div>
+                  <div className="mt-6 w-full text-center">
+                    <h3 className="text-lg font-semibold text-heading">{step.title}</h3>
+                    <p className="mt-2 text-sm text-muted">{step.description}</p>
+                  </div>
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+</file>
+
+<file path="src/config/metadata.ts">
+interface OGImage {
+  url: string;
+  width: number;
+  height: number;
+  alt: string;
+}
+
+interface OpenGraph {
+  title: string;
+  description: string;
+  type: string;
+  url: string;
+  siteName: string;
+  images: OGImage[];
+}
+
+interface Other {
+  canonical: string;
+}
+
+interface Metadata {
+  title: string;
+  description: string;
+  openGraph: OpenGraph;
+  other: Other;
+}
+
+export const SITE_URL = import.meta.env.VITE_SITE_URL ?? 'http://localhost:5173';
+export const SITE_NAME = 'SSCM — Smart Supply Chain Management';
+export const DEFAULT_DESCRIPTION =
+  'SSCM conecta empresas con proveedores y oportunidades comerciales en China y mercados internacionales para fortalecer sus cadenas de suministro.';
+export const OG_IMAGE = `${SITE_URL}/og-image.png`;
+
+export const pageMetadata: Record<string, Metadata> = {
+  '/': {
+    title: 'SSCM — Smart Supply Chain Management',
+    description:
+      'SSCM ayuda a empresas a encontrar proveedores confiables en China y mercados internacionales. Conectamos tu negocio con oportunidades de abastecimiento y sourcing global.',
+    openGraph: {
+      title: 'SSCM — Smart Supply Chain Management',
+      description:
+        'SSCM ayuda a empresas a encontrar proveedores confiables en China y mercados internacionales.',
+      type: 'website',
+      url: SITE_URL,
+      siteName: SITE_NAME,
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: 'SSCM - Smart Supply Chain Management' }],
+    },
+    other: {
+      canonical: SITE_URL,
+    },
+  },
+  '/about': {
+    title: 'Nosotros — SSCM',
+    description:
+      'Conoce a SSCM: experiencia, análisis y red internacional para conectar tu empresa con proveedores globales. Metodología propia para abastecimiento seguro y eficiente.',
+    openGraph: {
+      title: 'Nosotros — SSCM',
+      description:
+        'Conoce a SSCM: experiencia, análisis y red internacional para conectar tu empresa con proveedores globales.',
+      type: 'website',
+      url: `${SITE_URL}/about`,
+      siteName: SITE_NAME,
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: 'SSCM - Smart Supply Chain Management' }],
+    },
+    other: {
+      canonical: `${SITE_URL}/about`,
+    },
+  },
+  '/contact': {
+    title: 'Contacto — SSCM',
+    description:
+      'Contacta a SSCM para solicitar asesoramiento en búsqueda de proveedores, sourcing internacional y abastecimiento. Te ayudamos a encontrar el contacto comercial adecuado.',
+    openGraph: {
+      title: 'Contacto — SSCM',
+      description:
+        'Contacta a SSCM para solicitar asesoramiento en búsqueda de proveedores y sourcing internacional.',
+      type: 'website',
+      url: `${SITE_URL}/contact`,
+      siteName: SITE_NAME,
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: 'SSCM - Smart Supply Chain Management' }],
+    },
+    other: {
+      canonical: `${SITE_URL}/contact`,
+    },
+  },
+};
+
+export function getMetadata(pathname: string): Metadata {
+  return pageMetadata[pathname] ?? pageMetadata['/'];
+}
+</file>
+
+<file path="src/config/site.ts">
+export const SITE = {
+  owner: {
+    name: undefined,
+    role: undefined,
+    photo: undefined,
+    bio: undefined,
+  },
+  email: undefined,
+  phone: undefined,
+  whatsapp: undefined,
+  linkedin: undefined,
+  location: undefined,
+} as const;
+</file>
+
+<file path="src/layouts/.gitkeep">
+
+</file>
+
+<file path="src/layouts/PublicLayout.tsx">
+import { useOutlet } from 'react-router-dom';
+import { Navbar } from '../components/layout/Navbar';
+import { Footer } from '../components/layout/Footer';
+import { PageMetadata } from '../components/ui/PageMetadata';
+
+export default function PublicLayout({ children }: { children?: React.ReactNode }) {
+  const outlet = useOutlet();
+  return (
+    <div className="flex min-h-screen flex-col bg-white">
+      <PageMetadata />
+      <a href="#main-content" className="sr-only focus:not-sr-only focus:absolute focus:z-50 focus:top-4 focus:left-4 focus:px-4 focus:py-2 focus:bg-brand focus:text-white focus:rounded-[var(--radius)] focus:outline-2 focus:outline-offset-2 focus:outline-accent">
+        Saltar al contenido
+      </a>
+      <Navbar />
+      <main id="main-content" className="flex-1" tabIndex={-1}>
+        {outlet ?? children}
+      </main>
+      <Footer />
+    </div>
+  );
+}
+</file>
+
+<file path="src/pages/Contact/components/ContactForm.tsx">
+import { useState, useRef, useEffect, useCallback, type FormEvent } from 'react';
+import { Reveal } from '../../../components/ui/Reveal';
+import { Container } from '../../../components/ui/Container';
+import { Button } from '../../../components/ui/Button';
+import { SITE } from '../../../config/site';
+import { sendLead } from '../../../services/leads.service';
+import type { LeadFormValues } from '../../../types/lead';
+
+type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
+
+interface FormErrors {
+  nombre?: string;
+  email?: string;
+  mensaje?: string;
+}
+
+const MOTIVOS = [
+  { value: '', label: 'Seleccioná un motivo' },
+  { value: 'búsqueda de proveedores', label: 'Búsqueda de proveedores' },
+  { value: 'necesidad de sourcing', label: 'Necesidad de sourcing' },
+  { value: 'consulta general', label: 'Consulta general' },
+  { value: 'otro', label: 'Otro' },
+] as const;
+
+export function ContactForm() {
+  const [formData, setFormData] = useState<LeadFormValues>({
+    nombre: '',
+    empresa: '',
+    email: '',
+    telefono: '',
+    pais: '',
+    motivo: '',
+    mensaje: '',
+    website: '',
+  });
+  const [errors, setErrors] = useState<FormErrors>({});
+  const [status, setStatus] = useState<FormStatus>('idle');
+  const [errorMessage, setErrorMessage] = useState<string>('');
+  const nombreRef = useRef<HTMLInputElement>(null);
+  const emailRef = useRef<HTMLInputElement>(null);
+  const mensajeRef = useRef<HTMLTextAreaElement>(null);
+  const statusRef = useRef<HTMLDivElement>(null);
+
+  const validateForm = (): boolean => {
+    const newErrors: FormErrors = {};
+
+    if (!formData.nombre.trim()) {
+      newErrors.nombre = 'El nombre es obligatorio';
+    }
+
+    if (!formData.email.trim()) {
+      newErrors.email = 'El email es obligatorio';
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
+      newErrors.email = 'El email no es válido';
+    }
+
+    if (!formData.mensaje.trim()) {
+      newErrors.mensaje = 'El mensaje es obligatorio';
+    } else if (formData.mensaje.trim().length < 10) {
+      newErrors.mensaje = 'El mensaje debe tener al menos 10 caracteres';
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const focusFirstError = useCallback(() => {
+    if (errors.nombre) nombreRef.current?.focus();
+    else if (errors.email) emailRef.current?.focus();
+    else if (errors.mensaje) mensajeRef.current?.focus();
+  }, [errors]);
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name as keyof FormErrors]) {
+      setErrors((prev) => ({ ...prev, [name]: undefined }));
+    }
+  };
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault();
+    if (!validateForm()) {
+      focusFirstError();
+      return;
+    }
+
+    setStatus('submitting');
+    setErrorMessage('');
+
+    try {
+      await sendLead(formData);
+      setStatus('success');
+    } catch (err) {
+      setStatus('error');
+      const msg = err instanceof Error ? err.message : 'Error al enviar la consulta';
+      setErrorMessage(msg);
+      focusFirstError();
+    }
+  };
+
+  useEffect(() => {
+    if (status === 'error') {
+      focusFirstError();
+    }
+  }, [status, focusFirstError]);
+
+  const inputBase = 'w-full rounded-[var(--radius)] border px-4 py-3 text-heading placeholder-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/10';
+  const inputError = 'border-red-500';
+  const inputDefault = 'border-border';
+
+  const showChannels = SITE.email || SITE.phone || SITE.whatsapp || SITE.linkedin;
+
+  return (
+    <section className="bg-bg py-16">
+      <Container>
+        <Reveal>
+          <div className="grid gap-12 lg:grid-cols-2">
+            <div className="lg:pr-8">
+              <h1 className="mb-4 text-3xl font-semibold tracking-tight text-heading sm:text-4xl">
+                Enviá tu consulta
+              </h1>
+              <p className="mb-8 text-lg text-muted">
+                Completá el formulario y nos pondremos en contacto con vos lo
+                antes posible.
+              </p>
+
+              {showChannels && (
+                <div className="space-y-4">
+                  <h2 className="text-lg font-semibold text-heading">Canales directos</h2>
+                  <dl className="space-y-3 text-muted">
+                    {SITE.email && (
+                      <div className="flex items-center gap-3">
+                        <dt className="shrink-0 text-sm font-medium text-heading">Email</dt>
+                        <dd>
+                          <a
+                            href={`mailto:${SITE.email}`}
+                            className="text-brand hover:underline"
+                          >
+                            {SITE.email}
+                          </a>
+                        </dd>
+                      </div>
+                    )}
+                    {SITE.phone && (
+                      <div className="flex items-center gap-3">
+                        <dt className="shrink-0 text-sm font-medium text-heading">Teléfono</dt>
+                        <dd>
+                          <a
+                            href={`tel:${SITE.phone}`}
+                            className="text-brand hover:underline"
+                          >
+                            {SITE.phone}
+                          </a>
+                        </dd>
+                      </div>
+                    )}
+                    {SITE.whatsapp && (
+                      <div className="flex items-center gap-3">
+                        <dt className="shrink-0 text-sm font-medium text-heading">WhatsApp</dt>
+                        <dd>
+                          <a
+                            href={`https://wa.me/${String(SITE.whatsapp).replace(/\D/g, '')}`}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-brand hover:underline"
+                          >
+                            {SITE.whatsapp}
+                          </a>
+                        </dd>
+                      </div>
+                    )}
+                    {SITE.linkedin && (
+                      <div className="flex items-center gap-3">
+                        <dt className="shrink-0 text-sm font-medium text-heading">LinkedIn</dt>
+                        <dd>
+                          <a
+                            href={SITE.linkedin}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-brand hover:underline"
+                          >
+                            {SITE.linkedin}
+                          </a>
+                        </dd>
+                      </div>
+                    )}
+                  </dl>
+                </div>
+              )}
+            </div>
+
+            <div>
+              {status === 'success' ? (
+                <div
+                  ref={statusRef}
+                  role="status"
+                  aria-live="polite"
+                  className="rounded-[var(--radius)] border border-green-200 bg-green-50 p-8 text-center"
+                >
+                  <h3 className="mb-2 text-xl font-semibold text-green-900">
+                    Consulta enviada
+                  </h3>
+                  <p className="text-green-800">
+                    Gracias por tu consulta. Nos pondremos en contacto con vos lo
+                    antes posible.
+                  </p>
+                </div>
+              ) : (
+                <form
+                  noValidate
+                  onSubmit={handleSubmit}
+                  className="rounded-[var(--radius)] border border-border bg-surface p-8 shadow-sm"
+                >
+                  <div className="grid gap-6 md:grid-cols-2">
+                    <div>
+                      <label
+                        htmlFor="nombre"
+                        className="mb-2 block text-sm font-medium text-heading"
+                      >
+                        Nombre *
+                      </label>
+                      <input
+                        type="text"
+                        id="nombre"
+                        name="nombre"
+                        value={formData.nombre}
+                        onChange={handleChange}
+                        className={`${inputBase} ${errors.nombre ? inputError : inputDefault}`}
+                        placeholder="Ingresa tu nombre"
+                        aria-invalid={errors.nombre ? 'true' : 'false'}
+                        aria-describedby={errors.nombre ? 'nombre-error' : undefined}
+                        autoComplete="name"
+                        ref={nombreRef}
+                      />
+                      {errors.nombre && (
+                        <p
+                          id="nombre-error"
+                          className="mt-2 text-sm text-red-600"
+                          role="alert"
+                        >
+                          {errors.nombre}
+                        </p>
+                      )}
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="empresa"
+                        className="mb-2 block text-sm font-medium text-heading"
+                      >
+                        Empresa
+                      </label>
+                      <input
+                        type="text"
+                        id="empresa"
+                        name="empresa"
+                        value={formData.empresa}
+                        onChange={handleChange}
+                        className={inputBase}
+                        placeholder="Nombre de tu empresa"
+                        autoComplete="organization"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="email"
+                        className="mb-2 block text-sm font-medium text-heading"
+                      >
+                        Email *
+                      </label>
+                      <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
+                        className={`${inputBase} ${errors.email ? inputError : inputDefault}`}
+                        placeholder="correo@ejemplo.com"
+                        aria-invalid={errors.email ? 'true' : 'false'}
+                        aria-describedby={errors.email ? 'email-error' : undefined}
+                        autoComplete="email"
+                        ref={emailRef}
+                      />
+                      {errors.email && (
+                        <p
+                          id="email-error"
+                          className="mt-2 text-sm text-red-600"
+                          role="alert"
+                        >
+                          {errors.email}
+                        </p>
+                      )}
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="telefono"
+                        className="mb-2 block text-sm font-medium text-heading"
+                      >
+                        Teléfono
+                      </label>
+                      <input
+                        type="tel"
+                        id="telefono"
+                        name="telefono"
+                        value={formData.telefono}
+                        onChange={handleChange}
+                        className={inputBase}
+                        placeholder="+00 000 000 0000"
+                        autoComplete="tel"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="pais"
+                        className="mb-2 block text-sm font-medium text-heading"
+                      >
+                        País
+                      </label>
+                      <input
+                        type="text"
+                        id="pais"
+                        name="pais"
+                        value={formData.pais}
+                        onChange={handleChange}
+                        className={inputBase}
+                        placeholder="País"
+                        autoComplete="country-name"
+                      />
+                    </div>
+
+                    <div>
+                      <label
+                        htmlFor="motivo"
+                        className="mb-2 block text-sm font-medium text-heading"
+                      >
+                        Motivo de consulta
+                      </label>
+                      <select
+                        id="motivo"
+                        name="motivo"
+                        value={formData.motivo}
+                        onChange={handleChange}
+                        className={inputBase}
+                      >
+                        {MOTIVOS.map((m) => (
+                          <option key={m.value} value={m.value}>
+                            {m.label}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="mt-6">
+                    <label
+                      htmlFor="mensaje"
+                      className="mb-2 block text-sm font-medium text-heading"
+                    >
+                      Mensaje *
+                    </label>
+                    <textarea
+                      id="mensaje"
+                      name="mensaje"
+                      rows={6}
+                      value={formData.mensaje}
+                      onChange={handleChange}
+                      className={`${inputBase} ${errors.mensaje ? inputError : inputDefault}`}
+                      placeholder="Describí brevemente tu necesidad comercial..."
+                      aria-invalid={errors.mensaje ? 'true' : 'false'}
+                      aria-describedby={errors.mensaje ? 'mensaje-error' : undefined}
+                      ref={mensajeRef}
+                    />
+                    {errors.mensaje && (
+                      <p
+                        id="mensaje-error"
+                        className="mt-2 text-sm text-red-600"
+                        role="alert"
+                      >
+                        {errors.mensaje}
+                      </p>
+                    )}
+                  </div>
+
+                  <input
+                    type="text"
+                    id="website"
+                    name="website"
+                    value={formData.website}
+                    onChange={handleChange}
+                    tabIndex={-1}
+                    autoComplete="off"
+                    aria-hidden="true"
+                    className="absolute -left-9999px h-1px w-1px overflow-hidden"
+                  />
+
+                  {status === 'error' && (
+                    <div
+                      ref={statusRef}
+                      role="status"
+                      aria-live="assertive"
+                      className="mt-6 rounded-[var(--radius)] border border-red-200 bg-red-50 p-4 text-sm text-red-800"
+                    >
+                      <p className="font-semibold">No se pudo enviar la consulta</p>
+                      <p className="mt-1">{errorMessage}</p>
+                      {SITE.email && (
+                        <p className="mt-3">
+                          Podés escribirnos directamente a{' '}
+                          <a
+                            href={`mailto:${SITE.email}`}
+                            className="font-medium text-brand hover:underline"
+                          >
+                            {SITE.email}
+                          </a>
+                        </p>
+                      )}
+                    </div>
+                  )}
+
+                  <div className="mt-8 flex justify-center">
+                    <Button
+                      type="submit"
+                      variant="primary"
+                      size="md"
+                      disabled={status === 'submitting'}
+                    >
+                      {status === 'submitting' ? 'Enviando...' : 'Enviar consulta'}
+                    </Button>
+                  </div>
+
+                  <p className="mt-6 text-center text-sm text-muted">
+                    * Campos obligatorios.
+                  </p>
+                </form>
+              )}
+            </div>
+          </div>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+</file>
+
+<file path="src/pages/Contact/components/HeroContact.tsx">
+import { Reveal } from '../../../components/ui/Reveal';
+import { Container } from '../../../components/ui/Container';
+
+export function HeroContact() {
+  return (
+    <section className="relative overflow-hidden bg-brand py-20 text-white sm:py-28">
+      <Container className="relative z-10">
+        <div className="max-w-3xl">
+          <Reveal>
+            <h1 className="mb-6 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+              Contacto
+            </h1>
+            <p className="mx-auto max-w-3xl text-lg text-white/90 sm:text-xl">
+              Contanos qué necesitás y analizaremos cómo podemos ayudarte a
+              encontrar el contacto adecuado para tu necesidad comercial.
+            </p>
+          </Reveal>
+        </div>
+      </Container>
+    </section>
+  );
+}
+</file>
+
+<file path="src/pages/Home/components/AboutPreview.tsx">
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import { Reveal } from '../../../components/ui/Reveal';
+import { Container } from '../../../components/ui/Container';
+import { SectionHeading } from '../../../components/ui/SectionHeading';
+
+export function AboutPreview() {
+  return (
+    <section className="bg-surface py-16">
+      <Container>
+        <SectionHeading
+          title="Quiénes somos"
+          subtitle="SSM (Smart Supply Chain Management) conecta empresas con proveedores externos mediante experiencia, análisis y una red internacional de contactos."
+        />
+        <Reveal className="text-center">
+          <Link
+            to="/about"
+            className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:text-brand-2"
+          >
+            Conocé más sobre nosotros
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+</file>
+
+<file path="src/pages/Home/components/HeroSection.tsx">
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
+import { Button } from '../../../components/ui/Button';
+import { Container } from '../../../components/ui/Container';
+
+export function HeroSection() {
+  return (
+    <section className="bg-brand pb-24 pt-16 lg:pb-32 lg:pt-24">
+      <Container className="relative">
+        <div className="grid items-center gap-12 lg:grid-cols-2">
+          <div className="max-w-2xl">
+            <p className="mb-4 text-sm font-medium uppercase tracking-wider text-white/80">
+              Smart Supply Chain Management
+            </p>
+            <h1 className="mb-6 text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
+              Conectamos tu empresa con proveedores globales
+            </h1>
+            <p className="mb-10 max-w-xl text-lg text-white/80 sm:text-xl">
+              SSCM ayuda a empresas a construir conexiones confiables en la cadena de suministro
+              entre China y mercados internacionales.
+            </p>
+            <div className="flex flex-col gap-4 sm:flex-row">
+              <Button asChild variant="secondary" size="md">
+                <Link to="/contact">
+                  Contactanos
+                  <ArrowRight className="ml-2 h-4 w-4" />
+                </Link>
+              </Button>
+              <Button asChild variant="ghost" size="md" className="border border-white/30 text-white hover:bg-white/10">
+                <Link to="/about">
+                  Conocé cómo trabajamos
+                </Link>
+              </Button>
+            </div>
+          </div>
+          <div className="relative lg:ml-auto" aria-hidden>
+            <svg
+              viewBox="0 0 400 280"
+              className="w-full max-w-md h-auto mx-auto lg:max-w-lg"
+              preserveAspectRatio="xMidYMid meet"
+              role="img"
+              aria-label="Diagrama: Cliente conecta con Proveedor a través de SSCM"
+            >
+              <defs>
+                <marker
+                  id="arrowhead"
+                  markerWidth="10"
+                  markerHeight="7"
+                  refX="9"
+                  refY="3.5"
+                  orient="auto"
+                >
+                  <polygon points="0 0, 10 3.5, 0 7" fill="currentColor" />
+                </marker>
+              </defs>
+              <line
+                x1="60"
+                y1="140"
+                x2="160"
+                y2="140"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeDasharray="8 4"
+                markerEnd="url(#arrowhead)"
+                className="text-white/60"
+              />
+              <line
+                x1="240"
+                y1="140"
+                x2="340"
+                y2="140"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeDasharray="8 4"
+                markerEnd="url(#arrowhead)"
+                className="text-white/60"
+              />
+              <circle cx="110" cy="140" r="45" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/40" />
+              <circle cx="290" cy="140" r="45" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/40" />
+              <circle cx="200" cy="140" r="50" fill="var(--color-brand)" stroke="currentColor" strokeWidth="2" className="text-white" />
+              <text x="110" y="130" textAnchor="middle" fill="currentColor" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="600" className="text-white/80">Cliente</text>
+              <text x="200" y="135" textAnchor="middle" fill="white" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="700" letterSpacing="1">SSCM</text>
+              <text x="290" y="130" textAnchor="middle" fill="currentColor" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="600" className="text-white/80">Proveedor</text>
+            </svg>
+          </div>
+        </div>
+      </Container>
+    </section>
+  );
+}
+</file>
+
+<file path="src/pages/About.tsx">
+import { Reveal } from '../components/ui/Reveal';
+import { Container } from '../components/ui/Container';
+import { SectionHeading } from '../components/ui/SectionHeading';
+import { CTA } from '../components/ui/CTA';
+import { SITE } from '../config/site';
+
+export default function About() {
+  const { owner } = SITE;
+  const showOwner = owner.name && owner.photo;
+
+  return (
+    <>
+      <section className="relative overflow-hidden bg-brand py-20 text-white sm:py-28">
+        <Container className="relative z-10">
+          <div className="max-w-3xl">
+            <Reveal>
+              <h1 className="mb-6 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+                Nosotros
+              </h1>
+              <p className="mx-auto max-w-3xl text-lg text-white/90 sm:text-xl">
+                SSCM conecta empresas con proveedores globales mediante experiencia,
+                análisis y una red internacional de contactos.
+              </p>
+            </Reveal>
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-surface py-16">
+        <Container>
+          <Reveal>
+            <SectionHeading title="Quién es SSCM" />
+            <div className="mx-auto max-w-3xl text-center">
+              <p className="text-lg text-muted">
+                Smart Supply Chain Management nace para resolver la brecha entre
+                empresas que necesitan abastecerse y proveedores confiables en
+                mercados internacionales. Combinamos conocimiento de mercado,
+                red de contactos verificada y metodología propia para que cada
+                conexión sea segura, eficiente y duradera.
+              </p>
+            </div>
+          </Reveal>
+
+          {showOwner && owner.photo && owner.name && (
+            <Reveal delay={0.1} className="mt-12">
+              <div className="rounded-[var(--radius)] border border-border bg-bg p-8 md:flex md:items-center md:gap-8">
+                <div className="shrink-0">
+                  <img
+                    src={owner.photo}
+                    alt={owner.name}
+                    className="h-32 w-32 rounded-full object-cover border-4 border-brand"
+                  />
+                </div>
+                <div className="mt-6 text-center md:mt-0 md:text-left">
+                  <h3 className="text-xl font-semibold text-heading">{owner.name}</h3>
+                  {owner.role && (
+                    <p className="mt-1 text-sm text-muted">{owner.role}</p>
+                  )}
+                  {owner.bio && (
+                    <p className="mt-4 text-muted">{owner.bio}</p>
+                  )}
+                </div>
+              </div>
+            </Reveal>
+          )}
+        </Container>
+      </section>
+
+      <CTA
+        title="¿Buscás un proveedor para tu negocio?"
+        subtitle="Contanos qué necesitás y analizaremos cómo podemos ayudarte a encontrar el contacto adecuado para tu necesidad comercial."
+        buttonText="Solicitar asesoramiento"
+        href="/contact"
+      />
+    </>
+  );
+}
+</file>
+
+<file path="src/pages/Contact.tsx">
+import { HeroContact } from './Contact/components/HeroContact';
+import { ContactForm } from './Contact/components/ContactForm';
+
+export default function Contact() {
+  return (
+    <>
+      <HeroContact />
+      <ContactForm />
+    </>
+  );
+}
+</file>
+
+<file path="src/pages/Home.tsx">
+import { HeroSection } from './Home/components/HeroSection';
+import { Timeline } from '../components/ui/Timeline';
+import { AboutPreview } from './Home/components/AboutPreview';
+import { CTA } from '../components/ui/CTA';
+
+export default function Home() {
+  return (
+    <>
+      <HeroSection />
+      <Timeline />
+      <AboutPreview />
+      <CTA
+        title="¿Buscás un proveedor para tu negocio?"
+        subtitle="Contanos qué necesitás y analizaremos cómo podemos ayudarte a encontrar el contacto adecuado para tu necesidad comercial."
+        buttonText="Solicitar asesoramiento"
+        href="/contact"
+      />
+    </>
+  );
+}
+</file>
+
+<file path="src/pages/NotFound.tsx">
+import { Link } from 'react-router-dom';
+import { ArrowLeft } from 'lucide-react';
+import PublicLayout from '../layouts/PublicLayout';
+import { Container } from '../components/ui/Container';
+
+export default function NotFound() {
+  return (
+    <PublicLayout>
+      <Container className="py-16">
+        <div className="flex min-h-[60vh] flex-col items-center justify-center text-center">
+          <h1 className="mb-4 text-5xl font-semibold text-heading">404</h1>
+          <h2 className="mb-4 text-2xl font-medium text-text">Página no encontrada</h2>
+          <p className="mb-8 max-w-md text-muted">
+            La página que buscas no existe o ha sido movida.
+          </p>
+          <Link
+            to="/"
+            className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:text-brand-2"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Volver al inicio
+          </Link>
+        </div>
+      </Container>
+    </PublicLayout>
+  );
+}
+</file>
+
+<file path="src/routes/AppRoutes.tsx">
+import { Routes, Route, Navigate } from 'react-router-dom';
+import PublicLayout from '../layouts/PublicLayout';
+import Home from '../pages/Home';
+import About from '../pages/About';
+import Contact from '../pages/Contact';
+import NotFound from '../pages/NotFound';
+
+export default function AppRoutes() {
+  return (
+    <Routes>
+      <Route element={<PublicLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/services" element={<Navigate to="/" replace />} />
+      </Route>
+      <Route path="*" element={<NotFound />} />
+    </Routes>
+  );
+}
+</file>
+
+<file path="src/routes/ScrollToTop.tsx">
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
+
+export function ScrollToTop() {
+  const { pathname } = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
+
+  return null;
+}
+</file>
+
+<file path="src/services/.gitkeep">
+
+</file>
+
+<file path="src/services/api.ts">
+const API_BASE = import.meta.env.VITE_API_URL ?? '';
+
+export async function apiFetch<T>(
+  path: string,
+  options: RequestInit = {}
+): Promise<T> {
+  const res = await fetch(`${API_BASE}${path}`, {
+    headers: {
+      'Content-Type': 'application/json',
+      ...options.headers,
+    },
+    ...options,
+  });
+
+  if (!res.ok) {
+    const errorData = await res.json().catch(() => ({}));
+    const message = errorData.detail ?? errorData.message ?? 'Error en la solicitud';
+    throw new Error(message);
+  }
+
+  if (res.status === 204) {
+    return undefined as T;
+  }
+
+  return res.json() as Promise<T>;
+}
+</file>
+
+<file path="src/services/leads.service.ts">
+import { apiFetch } from './api';
+import type { LeadFormValues } from '../types/lead';
+
+export interface LeadResponse {
+  id: string;
+  status: string;
+}
+
+export async function sendLead(values: LeadFormValues): Promise<LeadResponse> {
+  const payload = {
+    nombre: values.nombre,
+    empresa: values.empresa ?? null,
+    email: values.email,
+    telefono: values.telefono ?? null,
+    pais: values.pais ?? null,
+    motivo: values.motivo ?? null,
+    mensaje: values.mensaje,
+  };
+
+  return apiFetch<LeadResponse>('/api/leads', {
+    method: 'POST',
+    body: JSON.stringify(payload),
+  });
+}
+</file>
+
+<file path="src/types/.gitkeep">
+
+</file>
+
+<file path="src/types/lead.ts">
+export interface LeadFormValues {
+  nombre: string;
+  empresa?: string;
+  email: string;
+  telefono?: string;
+  pais?: string;
+  motivo?: string;
+  mensaje: string;
+  website?: string;
+}
+</file>
+
+<file path="src/App.tsx">
+import { BrowserRouter } from 'react-router-dom';
+import AppRoutes from './routes/AppRoutes';
+import { ScrollToTop } from './routes/ScrollToTop';
+
+function App() {
+  return (
+    <BrowserRouter>
+      <ScrollToTop />
+      <AppRoutes />
+    </BrowserRouter>
+  );
+}
+
+export default App;
+</file>
+
+<file path="src/index.css">
+@import "tailwindcss";
+@import "@fontsource-variable/plus-jakarta-sans";
+
+@theme {
+  --color-brand: #002840;
+  --color-brand-2: #004B68;
+  --color-accent: #087EA4;
+  --color-bg: #F7FAFC;
+  --color-surface: #FFFFFF;
+  --color-muted: #64748B;
+  --color-border: #E2E8F0;
+  --color-text: #334155;
+  --color-heading: #002840;
+
+  --font-sans: "Plus Jakarta Sans Variable", system-ui, sans-serif;
+
+  --radius: 8px;
+
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-family: var(--font-sans);
+  }
+
+  body {
+    font-optical-sizing: auto;
+    font-size: 16px;
+    line-height: 1.6;
+    font-weight: 400;
+    color: var(--color-text);
+    background-color: var(--color-surface);
+    margin: 0;
+    padding: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    color: var(--color-heading);
+    font-weight: 600;
+    margin: 0;
+    letter-spacing: -0.02em;
+  }
+
+  h1 {
+    font-size: clamp(2.25rem, 5vw, 3.5rem);
+    line-height: 1.1;
+  }
+
+  h2 {
+    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
+    line-height: 1.2;
+  }
+
+  h3 {
+    font-size: clamp(1.25rem, 3vw, 1.75rem);
+    line-height: 1.3;
+  }
+
+  p {
+    margin: 0;
+    line-height: 1.6;
+  }
+}
+</file>
+
+<file path="src/main.tsx">
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import App from './App.tsx'
+
+createRoot(document.getElementById('root')!).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+</file>
+
+<file path=".gitignore">
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+</file>
+
+<file path=".oxlintrc.json">
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
+</file>
+
+<file path="index.html">
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>SSCM — Smart Supply Chain Management</title>
+    <meta
+      name="description"
+      content="SSCM conecta empresas con proveedores y oportunidades comerciales en China y mercados internacionales para fortalecer sus cadenas de suministro."
+    />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>
+</file>
+
+<file path="package.json">
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "node scripts/generate-seo.mjs && node scripts/generate-og-image.mjs && tsc -b && vite build",
+    "lint": "oxlint",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@fontsource-variable/plus-jakarta-sans": "^5.2.8",
+    "framer-motion": "^14.0.0",
+    "lucide-react": "^1.51.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@tailwindcss/vite": "^4.3.3",
+    "@types/node": "^24.13.3",
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "oxlint": "^1.81.0",
+    "sharp": "^0.33.5",
+    "tailwindcss": "^4.3.3",
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  }
+}
+</file>
+
+<file path="README.md">
+# React + TypeScript + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+
+## React Compiler
+
+The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+
+## Expanding the Oxlint configuration
+
+If you are developing a production application, we recommend enabling type-aware lint rules by installing `oxlint-tsgolint` and editing `.oxlintrc.json`:
+
+```json
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["react", "typescript", "oxc"],
+  "options": {
+    "typeAware": true
+  },
+  "rules": {
+    "react/rules-of-hooks": "error",
+    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+  }
+}
+```
+
+See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rules) for the full list of rules and categories.
+</file>
+
+<file path="tsconfig.app.json">
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.app.tsbuildinfo",
+    "target": "es2023",
+    "lib": ["ES2023", "DOM"],
+    "module": "esnext",
+    "types": ["vite/client"],
+    "allowArbitraryExtensions": true,
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "moduleResolution": "bundler",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+    "jsx": "react-jsx",
+
+    /* Linting */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["src"]
+}
+</file>
+
+<file path="tsconfig.json">
+{
+  "files": [],
+  "references": [
+    { "path": "./tsconfig.app.json" },
+    { "path": "./tsconfig.node.json" }
+  ]
+}
+</file>
+
+<file path="tsconfig.node.json">
+{
+  "compilerOptions": {
+    "tsBuildInfoFile": "./node_modules/.tmp/tsconfig.node.tsbuildinfo",
+    "target": "es2023",
+    "lib": ["ES2023"],
+    "types": ["node"],
+    "skipLibCheck": true,
+
+    /* Bundler mode */
+    "module": "nodenext",
+    "allowImportingTsExtensions": true,
+    "verbatimModuleSyntax": true,
+    "moduleDetection": "force",
+    "noEmit": true,
+
+    /* Linting */
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "erasableSyntaxOnly": true,
+    "noFallthroughCasesInSwitch": true
+  },
+  "include": ["vite.config.ts"]
+}
+</file>
+
+<file path="vercel.json">
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://api.resend.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self';"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=()"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).woff2",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
+</file>
+
+<file path="vite.config.ts">
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react(), tailwindcss()],
+})
+</file>
+
+</files>

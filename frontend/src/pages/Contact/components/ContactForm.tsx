@@ -119,9 +119,9 @@ export function ContactForm() {
         <Reveal>
           <div className="grid gap-12 lg:grid-cols-2">
             <div className="lg:pr-8">
-              <h1 className="mb-4 text-3xl font-semibold tracking-tight text-heading sm:text-4xl">
+              <h2 className="mb-4 text-3xl font-semibold tracking-tight text-heading sm:text-4xl">
                 Enviá tu consulta
-              </h1>
+              </h2>
               <p className="mb-8 text-lg text-muted">
                 Completá el formulario y nos pondremos en contacto con vos lo
                 antes posible.

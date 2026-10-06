@@ -10,7 +10,7 @@ export function AboutPreview() {
       <Container>
         <SectionHeading
           title="Quiénes somos"
-          subtitle="SSM (Smart Supply Chain Management) conecta empresas con proveedores externos mediante experiencia, análisis y una red internacional de contactos."
+          subtitle="SSCM (Smart Supply Chain Management) conecta empresas con proveedores externos mediante experiencia, análisis y una red internacional de contactos."
         />
         <Reveal className="text-center">
           <Link

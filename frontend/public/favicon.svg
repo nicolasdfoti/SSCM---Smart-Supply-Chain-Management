@@ -1,6 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#002840" rx="4"/>
-  <circle cx="16" cy="12" r="7" fill="none" stroke="white" stroke-width="1.5"/>
-  <path d="M16 5v14M9 12h14" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-  <text x="16" y="26" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="7" font-weight="600" letter-spacing="0.5px">SSCM</text>
-</svg>

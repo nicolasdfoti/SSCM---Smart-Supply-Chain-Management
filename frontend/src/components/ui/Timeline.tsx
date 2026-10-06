@@ -54,13 +54,13 @@ export function Timeline() {
             ))}
           </div>
 
-          <div className="hidden lg:flex lg:items-start lg:justify-between">
-            <div className="relative flex-1" aria-hidden>
-              <div className="absolute top-[30px] left-0 right-0 h-0.5 bg-border" />
+          <div className="hidden lg:grid lg:grid-cols-4 lg:gap-8">
+            <div className="relative lg:col-span-4" aria-hidden>
+              <div className="absolute left-[12.5%] right-[12.5%] top-6 h-0.5 bg-border -z-10" />
             </div>
             {TIMELINE_STEPS.map((step, index) => (
               <Reveal key={step.number} delay={index * 0.1}>
-                <div className="relative flex flex-col items-center flex-1 px-2">
+                <div className="relative flex flex-col items-center">
                   <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-white font-semibold text-lg z-10" aria-hidden>
                     {step.number}
                   </div>

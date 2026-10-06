@@ -15,6 +15,7 @@ export async function sendLead(values: LeadFormValues): Promise<LeadResponse> {
     pais: values.pais ?? null,
     motivo: values.motivo ?? null,
     mensaje: values.mensaje,
+    website: values.website ?? null,
   };
 
   return apiFetch<LeadResponse>('/api/leads', {
