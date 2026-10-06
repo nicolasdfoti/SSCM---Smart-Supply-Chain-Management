@@ -22,7 +22,7 @@ export function CTA({
   centered = true,
 }: CTAProps) {
   return (
-    <section className="bg-brand py-16">
+    <section className="bg-brand py-20 lg:py-24">
       <Container>
         <Reveal className={centered ? 'text-center' : ''}>
           <h2 className="mb-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">

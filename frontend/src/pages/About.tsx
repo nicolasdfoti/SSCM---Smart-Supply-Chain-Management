@@ -2,6 +2,7 @@ import { Reveal } from '../components/ui/Reveal';
 import { Container } from '../components/ui/Container';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { CTA } from '../components/ui/CTA';
+import { PageHero } from '../components/ui/PageHero';
 import { SITE } from '../config/site';
 
 export default function About() {
@@ -10,23 +11,13 @@ export default function About() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-brand py-20 text-white sm:py-28">
-        <Container className="relative z-10">
-          <div className="max-w-3xl">
-            <Reveal>
-              <h1 className="mb-6 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Nosotros
-              </h1>
-              <p className="mx-auto max-w-3xl text-lg text-white/90 sm:text-xl">
-                SSCM conecta empresas con proveedores globales mediante experiencia,
-                análisis y una red internacional de contactos.
-              </p>
-            </Reveal>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        title="Nosotros"
+        subtitle="SSCM conecta empresas con proveedores y oportunidades comerciales en China y mercados internacionales. Combinamos experiencia, análisis y una red internacional de contactos para facilitar conexiones de abastecimiento confiables."
+        size="md"
+      />
 
-      <section className="bg-surface py-16">
+      <section className="bg-surface py-20 lg:py-24">
         <Container>
           <Reveal>
             <SectionHeading title="Quién es SSCM" />

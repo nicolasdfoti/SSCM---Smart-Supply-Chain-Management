@@ -6,6 +6,7 @@ import { Container } from '../ui/Container';
 
 const NAV_LINKS = [
   { label: 'Inicio', to: '/' },
+  { label: 'Servicios', to: '/services' },
   { label: 'Nosotros', to: '/about' },
   { label: 'Contacto', to: '/contact' },
 ];
@@ -40,13 +41,14 @@ export function Navbar() {
         <div className="flex h-20 items-center justify-between gap-6">
           <Link
             to="/"
-            className="flex items-center gap-2 text-white"
+            className="flex items-center gap-3 text-white"
             aria-label="SSCM - Inicio"
           >
+            <img src="/logo.png" alt="" className="h-9 w-auto" aria-hidden="true" />
             <span className="text-xl font-semibold sm:text-2xl">SSCM</span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center gap-8" aria-label="Navegación principal">
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.to}
@@ -66,7 +68,7 @@ export function Navbar() {
 
           <div className="hidden lg:flex items-center gap-4">
             <Button asChild variant="secondary" size="sm">
-              <Link to="/contact">Contacto</Link>
+              <Link to="/contact">Solicitar asesoramiento</Link>
             </Button>
           </div>
 
@@ -99,7 +101,7 @@ export function Navbar() {
               ))}
               <Button asChild variant="secondary" size="sm" className="self-start">
                 <Link to="/contact" onClick={closeMenu}>
-                  Contacto
+                  Solicitar asesoramiento
                 </Link>
               </Button>
             </nav>

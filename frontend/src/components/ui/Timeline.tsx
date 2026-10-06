@@ -31,7 +31,7 @@ const TIMELINE_STEPS = [
 
 export function Timeline() {
   return (
-    <section className="bg-bg py-16">
+    <section className="bg-bg py-20 lg:py-24">
       <Container>
         <SectionHeading
           title="Cómo trabajamos"

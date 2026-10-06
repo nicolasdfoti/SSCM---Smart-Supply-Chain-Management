@@ -6,7 +6,7 @@ import { SectionHeading } from '../../../components/ui/SectionHeading';
 
 export function AboutPreview() {
   return (
-    <section className="bg-surface py-16">
+    <section className="bg-surface py-20 lg:py-24">
       <Container>
         <SectionHeading
           title="Quiénes somos"
