@@ -40,14 +40,14 @@ The content is organized as follows:
 </file_summary>
 
 <directory_structure>
-public/
-  favicon.svg
-  icons.svg
-  robots.txt
-  sitemap.xml
 scripts/
+  templates/
+    robots.txt.tpl
+    sitemap.xml.tpl
+    vercel.json.tpl
   generate-og-image.mjs
   generate-seo.mjs
+  generate-vercel.mjs
 src/
   assets/
     brand/
@@ -63,6 +63,7 @@ src/
       Button.tsx
       Container.tsx
       CTA.tsx
+      PageHero.tsx
       PageMetadata.tsx
       Reveal.tsx
       SectionHeading.tsx
@@ -86,6 +87,7 @@ src/
     Contact.tsx
     Home.tsx
     NotFound.tsx
+    Services.tsx
   routes/
     AppRoutes.tsx
     ScrollToTop.tsx
@@ -107,75 +109,102 @@ README.md
 tsconfig.app.json
 tsconfig.json
 tsconfig.node.json
-vercel.json
 vite.config.ts
 </directory_structure>
 
 <files>
 This section contains the contents of the repository's files.
 
-<file path="public/favicon.svg">
-<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32">
-  <rect width="32" height="32" fill="#002840" rx="4"/>
-  <circle cx="16" cy="12" r="7" fill="none" stroke="white" stroke-width="1.5"/>
-  <path d="M16 5v14M9 12h14" stroke="white" stroke-width="1.5" stroke-linecap="round"/>
-  <text x="16" y="26" text-anchor="middle" fill="white" font-family="system-ui, sans-serif" font-size="7" font-weight="600" letter-spacing="0.5px">SSCM</text>
-</svg>
-</file>
-
-<file path="public/icons.svg">
-<svg xmlns="http://www.w3.org/2000/svg">
-  <symbol id="bluesky-icon" viewBox="0 0 16 17">
-    <g clip-path="url(#bluesky-clip)"><path fill="#08060d" d="M7.75 7.735c-.693-1.348-2.58-3.86-4.334-5.097-1.68-1.187-2.32-.981-2.74-.79C.188 2.065.1 2.812.1 3.251s.241 3.602.398 4.13c.52 1.744 2.367 2.333 4.07 2.145-2.495.37-4.71 1.278-1.805 4.512 3.196 3.309 4.38-.71 4.987-2.746.608 2.036 1.307 5.91 4.93 2.746 2.72-2.746.747-4.143-1.747-4.512 1.702.189 3.55-.4 4.07-2.145.156-.528.397-3.691.397-4.13s-.088-1.186-.575-1.406c-.42-.19-1.06-.395-2.741.79-1.755 1.24-3.64 3.752-4.334 5.099"/></g>
-    <defs><clipPath id="bluesky-clip"><path fill="#fff" d="M.1.85h15.3v15.3H.1z"/></clipPath></defs>
-  </symbol>
-  <symbol id="discord-icon" viewBox="0 0 20 19">
-    <path fill="#08060d" d="M16.224 3.768a14.5 14.5 0 0 0-3.67-1.153c-.158.286-.343.67-.47.976a13.5 13.5 0 0 0-4.067 0c-.128-.306-.317-.69-.476-.976A14.4 14.4 0 0 0 3.868 3.77C1.546 7.28.916 10.703 1.231 14.077a14.7 14.7 0 0 0 4.5 2.306q.545-.748.965-1.587a9.5 9.5 0 0 1-1.518-.74q.191-.14.372-.293c2.927 1.369 6.107 1.369 8.999 0q.183.152.372.294-.723.437-1.52.74.418.838.963 1.588a14.6 14.6 0 0 0 4.504-2.308c.37-3.911-.63-7.302-2.644-10.309m-9.13 8.234c-.878 0-1.599-.82-1.599-1.82 0-.998.705-1.82 1.6-1.82.894 0 1.614.82 1.599 1.82.001 1-.705 1.82-1.6 1.82m5.91 0c-.878 0-1.599-.82-1.599-1.82 0-.998.705-1.82 1.6-1.82.893 0 1.614.82 1.599 1.82 0 1-.706 1.82-1.6 1.82"/>
-  </symbol>
-  <symbol id="documentation-icon" viewBox="0 0 21 20">
-    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="m15.5 13.333 1.533 1.322c.645.555.967.833.967 1.178s-.322.623-.967 1.179L15.5 18.333m-3.333-5-1.534 1.322c-.644.555-.966.833-.966 1.178s.322.623.966 1.179l1.534 1.321"/>
-    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M17.167 10.836v-4.32c0-1.41 0-2.117-.224-2.68-.359-.906-1.118-1.621-2.08-1.96-.599-.21-1.349-.21-2.848-.21-2.623 0-3.935 0-4.983.369-1.684.591-3.013 1.842-3.641 3.428C3 6.449 3 7.684 3 10.154v2.122c0 2.558 0 3.838.706 4.726q.306.383.713.671c.76.536 1.79.64 3.581.66"/>
-    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M3 10a2.78 2.78 0 0 1 2.778-2.778c.555 0 1.209.097 1.748-.047.48-.129.854-.503.982-.982.145-.54.048-1.194.048-1.749a2.78 2.78 0 0 1 2.777-2.777"/>
-  </symbol>
-  <symbol id="github-icon" viewBox="0 0 19 19">
-    <path fill="#08060d" fill-rule="evenodd" d="M9.356 1.85C5.05 1.85 1.57 5.356 1.57 9.694a7.84 7.84 0 0 0 5.324 7.44c.387.079.528-.168.528-.376 0-.182-.013-.805-.013-1.454-2.165.467-2.616-.935-2.616-.935-.349-.91-.864-1.143-.864-1.143-.71-.48.051-.48.051-.48.787.051 1.2.805 1.2.805.695 1.194 1.817.857 2.268.649.064-.507.27-.857.49-1.052-1.728-.182-3.545-.857-3.545-3.87 0-.857.31-1.558.8-2.104-.078-.195-.349-1 .077-2.078 0 0 .657-.208 2.14.805a7.5 7.5 0 0 1 1.946-.26c.657 0 1.328.092 1.946.26 1.483-1.013 2.14-.805 2.14-.805.426 1.078.155 1.883.078 2.078.502.546.799 1.247.799 2.104 0 3.013-1.818 3.675-3.558 3.87.284.247.528.714.528 1.454 0 1.052-.012 1.896-.012 2.156 0 .208.142.455.528.377a7.84 7.84 0 0 0 5.324-7.441c.013-4.338-3.48-7.844-7.773-7.844" clip-rule="evenodd"/>
-  </symbol>
-  <symbol id="social-icon" viewBox="0 0 20 20">
-    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M12.5 6.667a4.167 4.167 0 1 0-8.334 0 4.167 4.167 0 0 0 8.334 0"/>
-    <path fill="none" stroke="#aa3bff" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.35" d="M2.5 16.667a5.833 5.833 0 0 1 8.75-5.053m3.837.474.513 1.035c.07.144.257.282.414.309l.93.155c.596.1.736.536.307.965l-.723.73a.64.64 0 0 0-.152.531l.207.903c.164.715-.213.991-.84.618l-.872-.52a.63.63 0 0 0-.577 0l-.872.52c-.624.373-1.003.094-.84-.618l.207-.903a.64.64 0 0 0-.152-.532l-.723-.729c-.426-.43-.289-.864.306-.964l.93-.156a.64.64 0 0 0 .412-.31l.513-1.034c.28-.562.735-.562 1.012 0"/>
-  </symbol>
-  <symbol id="x-icon" viewBox="0 0 19 19">
-    <path fill="#08060d" fill-rule="evenodd" d="M1.893 1.98c.052.072 1.245 1.769 2.653 3.77l2.892 4.114c.183.261.333.48.333.486s-.068.089-.152.183l-.522.593-.765.867-3.597 4.087c-.375.426-.734.834-.798.905a1 1 0 0 0-.118.148c0 .01.236.017.664.017h.663l.729-.83c.4-.457.796-.906.879-.999a692 692 0 0 0 1.794-2.038c.034-.037.301-.34.594-.675l.551-.624.345-.392a7 7 0 0 1 .34-.374c.006 0 .93 1.306 2.052 2.903l2.084 2.965.045.063h2.275c1.87 0 2.273-.003 2.266-.021-.008-.02-1.098-1.572-3.894-5.547-2.013-2.862-2.28-3.246-2.273-3.266.008-.019.282-.332 2.085-2.38l2-2.274 1.567-1.782c.022-.028-.016-.03-.65-.03h-.674l-.3.342a871 871 0 0 1-1.782 2.025c-.067.075-.405.458-.75.852a100 100 0 0 1-.803.91c-.148.172-.299.344-.99 1.127-.304.343-.32.358-.345.327-.015-.019-.904-1.282-1.976-2.808L6.365 1.85H1.8zm1.782.91 8.078 11.294c.772 1.08 1.413 1.973 1.425 1.984.016.017.241.02 1.05.017l1.03-.004-2.694-3.766L7.796 5.75 5.722 2.852l-1.039-.004-1.039-.004z" clip-rule="evenodd"/>
-  </symbol>
-</svg>
-</file>
-
-<file path="public/robots.txt">
+<file path="scripts/templates/robots.txt.tpl">
 User-agent: *
 Allow: /
 
 Sitemap: http://localhost:5173/sitemap.xml
 </file>
 
-<file path="public/sitemap.xml">
+<file path="scripts/templates/sitemap.xml.tpl">
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://localhost:5173/</loc>
+    <loc>{{SITE_URL}}/</loc>
     <changefreq>weekly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>http://localhost:5173/about</loc>
+    <loc>{{SITE_URL}}/about</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
-    <loc>http://localhost:5173/contact</loc>
+    <loc>{{SITE_URL}}/services</loc>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>{{SITE_URL}}/contact</loc>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
 </urlset>
+</file>
+
+<file path="scripts/templates/vercel.json.tpl">
+{
+  "buildCommand": "npm run build",
+  "outputDirectory": "dist",
+  "framework": "vite",
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
+    }
+  ],
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "X-Content-Type-Options",
+          "value": "nosniff"
+        },
+        {
+          "key": "Referrer-Policy",
+          "value": "strict-origin-when-cross-origin"
+        },
+        {
+          "key": "X-Frame-Options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "Content-Security-Policy",
+          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; font-src 'self' data:; img-src 'self' data: https:; connect-src 'self' {{BACKEND_ORIGIN}}; frame-ancestors 'self'; form-action 'self'; base-uri 'self';"
+        },
+        {
+          "key": "Permissions-Policy",
+          "value": "camera=(), microphone=(), geolocation=(), payment=()"
+        }
+      ]
+    },
+    {
+      "source": "/assets/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    },
+    {
+      "source": "/(.*).woff2",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
+    }
+  ]
+}
 </file>
 
 <file path="scripts/generate-og-image.mjs">
@@ -188,10 +217,9 @@ const publicDir = join(__dirname, '..', 'public');
 const assetsDir = join(__dirname, '..', 'src', 'assets', 'brand');
 
 const logoPath = join(assetsDir, 'logo.png');
-const outputPath = join(publicDir, 'og-image.png');
 
 if (!existsSync(logoPath)) {
-  console.log('Logo not found, skipping OG image generation');
+  console.log('Logo not found, skipping image generation');
   process.exit(0);
 }
 
@@ -199,6 +227,7 @@ try {
   const sharp = (await import('sharp')).default;
   const logoBuffer = readFileSync(logoPath);
 
+  // Generate og-image.png (1200x630)
   await sharp({
     create: {
       width: 1200,
@@ -207,42 +236,106 @@ try {
       background: '#002840',
     },
   })
-    .composite([
-      {
-        input: logoBuffer,
-        gravity: 'center',
-      },
-    ])
+    .composite([{ input: logoBuffer, gravity: 'center' }])
     .png()
-    .toFile(outputPath);
+    .toFile(join(publicDir, 'og-image.png'));
 
   console.log('Generated og-image.png (1200x630) with logo on #002840 background');
+
+  // Generate favicon.png (32x32)
+  await sharp({
+    create: {
+      width: 32,
+      height: 32,
+      channels: 4,
+      background: '#002840',
+    },
+  })
+    .composite([{ input: logoBuffer, gravity: 'center' }])
+    .png()
+    .toFile(join(publicDir, 'favicon.png'));
+
+  console.log('Generated favicon.png (32x32) with logo on #002840 background');
+
+  // Generate apple-touch-icon.png (180x180)
+  await sharp({
+    create: {
+      width: 180,
+      height: 180,
+      channels: 4,
+      background: '#002840',
+    },
+  })
+    .composite([{ input: logoBuffer, gravity: 'center' }])
+    .png()
+    .toFile(join(publicDir, 'apple-touch-icon.png'));
+
+  console.log('Generated apple-touch-icon.png (180x180) with logo on #002840 background');
 } catch {
-  console.log('Sharp not available, skipping OG image generation');
+  console.log('Sharp not available, skipping image generation');
   console.log('Install sharp for production: npm install sharp --save-dev');
 }
 </file>
 
 <file path="scripts/generate-seo.mjs">
+import { readFileSync, writeFileSync, existsSync, mkdirSync } from 'fs';
+import { join, dirname } from 'path';
+import { fileURLToPath } from 'url';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+const siteUrl = process.env.VITE_SITE_URL;
+const templatesDir = join(__dirname, 'templates');
+const publicDir = join(__dirname, '..', 'public');
+
+if (!siteUrl) {
+  console.error('VITE_SITE_URL is required for SEO generation (sitemap.xml, robots.txt)');
+  process.exit(1);
+}
+
+mkdirSync(publicDir, { recursive: true });
+
+const files = ['robots.txt', 'sitemap.xml'];
+
+for (const file of files) {
+  const templatePath = join(templatesDir, `${file}.tpl`);
+  const outputPath = join(publicDir, file);
+
+  if (!existsSync(templatePath)) {
+    console.error('Template not found:', templatePath);
+    process.exit(1);
+  }
+
+  let content = readFileSync(templatePath, 'utf-8');
+  content = content.replace(/\{\{SITE_URL\}\}/g, siteUrl);
+  writeFileSync(outputPath, content);
+  console.log(`Generated ${file} with SITE_URL=${siteUrl}`);
+}
+</file>
+
+<file path="scripts/generate-vercel.mjs">
 import { readFileSync, writeFileSync, existsSync } from 'fs';
 import { join, dirname } from 'path';
 import { fileURLToPath } from 'url';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
-const siteUrl = process.env.VITE_SITE_URL || 'http://localhost:5173';
-const publicDir = join(__dirname, '..', 'public');
+const templatePath = join(__dirname, 'templates', 'vercel.json.tpl');
+const outputPath = join(__dirname, '..', 'vercel.json');
 
-const files = ['robots.txt', 'sitemap.xml'];
-
-for (const file of files) {
-  const filePath = join(publicDir, file);
-  if (existsSync(filePath)) {
-    let content = readFileSync(filePath, 'utf-8');
-    content = content.replace(/\{\{SITE_URL\}\}/g, siteUrl);
-    writeFileSync(filePath, content);
-    console.log(`Generated ${file} with SITE_URL=${siteUrl}`);
-  }
+if (!existsSync(templatePath)) {
+  console.error('Template not found:', templatePath);
+  process.exit(1);
 }
+
+const backendOrigin = process.env.VITE_API_URL;
+if (!backendOrigin) {
+  console.error('VITE_API_URL is required for vercel.json generation (needed for CSP connect-src)');
+  process.exit(1);
+}
+
+let content = readFileSync(templatePath, 'utf-8');
+content = content.replace(/\{\{BACKEND_ORIGIN\}\}/g, backendOrigin);
+writeFileSync(outputPath, content);
+console.log(`Generated vercel.json with BACKEND_ORIGIN=${backendOrigin}`);
 </file>
 
 <file path="src/assets/brand/.gitkeep">
@@ -256,37 +349,118 @@ for (const file of files) {
 <file path="src/components/layout/Footer.tsx">
 import { Link } from 'react-router-dom';
 import { Container } from '../ui/Container';
+import { SITE } from '../../config/site';
 
 const YEAR = new Date().getFullYear();
+
+const hasChannels = SITE.email || SITE.phone || SITE.whatsapp || SITE.linkedin;
 
 export function Footer() {
   return (
     <footer className="border-t border-border bg-brand text-white">
       <Container className="py-12">
-        <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
-          <div className="flex items-center gap-2">
-            <div>
-              <div className="text-lg font-semibold">SSCM</div>
-              <div className="text-sm text-white/80">
-                Smart Supply Chain Management
-              </div>
-            </div>
+        <div className="grid gap-8 md:grid-cols-3">
+          <div>
+            <Link to="/" className="flex items-center gap-3" aria-label="SSCM - Inicio">
+              <img src="/logo.png" alt="" className="h-9 w-auto" aria-hidden="true" />
+              <span className="text-xl font-semibold">SSCM</span>
+            </Link>
+            <p className="mt-4 text-sm text-white/80">
+              Conectamos empresas con proveedores y oportunidades comerciales
+              en China y mercados internacionales.
+            </p>
           </div>
 
-          <nav className="flex flex-wrap gap-6 text-sm">
-            <Link to="/" className="text-white/80 hover:text-white">
-              Inicio
-            </Link>
-            <Link to="/about" className="text-white/80 hover:text-white">
-              Nosotros
-            </Link>
-            <Link to="/contact" className="text-white/80 hover:text-white">
-              Contacto
-            </Link>
+          <nav aria-label="Navegación del pie de página">
+            <h3 className="mb-4 font-semibold">Navegación</h3>
+            <ul className="flex flex-col gap-3 text-sm">
+              <li>
+                <Link to="/" className="text-white/80 hover:text-white">
+                  Inicio
+                </Link>
+              </li>
+              <li>
+                <Link to="/services" className="text-white/80 hover:text-white">
+                  Servicios
+                </Link>
+              </li>
+              <li>
+                <Link to="/about" className="text-white/80 hover:text-white">
+                  Nosotros
+                </Link>
+              </li>
+              <li>
+                <Link to="/contact" className="text-white/80 hover:text-white">
+                  Contacto
+                </Link>
+              </li>
+            </ul>
           </nav>
+
+          <div>
+            <h3 className="mb-4 font-semibold">
+              {hasChannels ? 'Canales directos' : 'Contacto'}
+            </h3>
+            <ul className="flex flex-col gap-3 text-sm">
+              {hasChannels ? (
+                <>
+                  {SITE.email && (
+                    <li>
+                      <a
+                        href={`mailto:${SITE.email}`}
+                        className="text-white/80 hover:text-white"
+                      >
+                        {SITE.email}
+                      </a>
+                    </li>
+                  )}
+                  {SITE.phone && (
+                    <li>
+                      <a
+                        href={`tel:${SITE.phone}`}
+                        className="text-white/80 hover:text-white"
+                      >
+                        {SITE.phone}
+                      </a>
+                    </li>
+                  )}
+                  {SITE.whatsapp && (
+                    <li>
+                      <a
+                        href={`https://wa.me/${String(SITE.whatsapp).replace(/\D/g, '')}`}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/80 hover:text-white"
+                      >
+                        WhatsApp
+                      </a>
+                    </li>
+                  )}
+                  {SITE.linkedin && (
+                    <li>
+                      <a
+                        href={SITE.linkedin}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-white/80 hover:text-white"
+                      >
+                        LinkedIn
+                      </a>
+                    </li>
+                  )}
+                </>
+              ) : (
+                <li>
+                  <Link to="/contact" className="text-white/80 hover:text-white">
+                    Escribinos
+                  </Link>
+                </li>
+              )}
+            </ul>
+          </div>
         </div>
 
-        <div className="mt-8 border-t border-white/10 pt-8 text-center text-sm text-white/60">
+        <div className="mt-12 border-t border-white/10 pt-8 text-center text-sm text-white/60">
           © {YEAR} SSCM. Todos los derechos reservados.
         </div>
       </Container>
@@ -296,7 +470,7 @@ export function Footer() {
 </file>
 
 <file path="src/components/layout/Navbar.tsx">
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '../ui/Button';
@@ -304,6 +478,7 @@ import { Container } from '../ui/Container';
 
 const NAV_LINKS = [
   { label: 'Inicio', to: '/' },
+  { label: 'Servicios', to: '/services' },
   { label: 'Nosotros', to: '/about' },
   { label: 'Contacto', to: '/contact' },
 ];
@@ -311,6 +486,7 @@ const NAV_LINKS = [
 export function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const location = useLocation();
+  const prevPathRef = useRef(location.pathname);
 
   const closeMenu = useCallback(() => setMobileOpen(false), []);
 
@@ -325,8 +501,11 @@ export function Navbar() {
   }, [mobileOpen, closeMenu]);
 
   useEffect(() => {
-    closeMenu();
-  }, [location.pathname, closeMenu]);
+    if (location.pathname !== prevPathRef.current) {
+      setMobileOpen(false);
+      prevPathRef.current = location.pathname;
+    }
+  }, [location.pathname]);
 
   return (
     <header className="sticky top-0 z-50 bg-brand shadow-sm">
@@ -334,13 +513,14 @@ export function Navbar() {
         <div className="flex h-20 items-center justify-between gap-6">
           <Link
             to="/"
-            className="flex items-center gap-2 text-white"
+            className="flex items-center gap-3 text-white"
             aria-label="SSCM - Inicio"
           >
+            <img src="/logo.png" alt="" className="h-9 w-auto" aria-hidden="true" />
             <span className="text-xl font-semibold sm:text-2xl">SSCM</span>
           </Link>
 
-          <nav className="hidden lg:flex items-center gap-8" aria-label="Main navigation">
+          <nav className="hidden lg:flex items-center gap-8" aria-label="Navegación principal">
             {NAV_LINKS.map((link) => (
               <NavLink
                 key={link.to}
@@ -360,7 +540,7 @@ export function Navbar() {
 
           <div className="hidden lg:flex items-center gap-4">
             <Button asChild variant="secondary" size="sm">
-              <Link to="/contact">Contacto</Link>
+              <Link to="/contact">Solicitar asesoramiento</Link>
             </Button>
           </div>
 
@@ -393,7 +573,7 @@ export function Navbar() {
               ))}
               <Button asChild variant="secondary" size="sm" className="self-start">
                 <Link to="/contact" onClick={closeMenu}>
-                  Contacto
+                  Solicitar asesoramiento
                 </Link>
               </Button>
             </nav>
@@ -414,7 +594,10 @@ import {
   cloneElement,
   forwardRef,
   isValidElement,
+  useMemo,
   type ComponentPropsWithoutRef,
+  type Ref,
+  type RefCallback,
 } from 'react';
 
 type Variant = 'primary' | 'secondary' | 'outline' | 'ghost';
@@ -441,6 +624,19 @@ const SIZES: Record<Size, string> = {
 
 const BASE_TRANSITION = 'transition-colors duration-200';
 
+function mergeRefs<T>(...refs: Array<Ref<T> | undefined>): RefCallback<T> {
+  return (value) => {
+    refs.forEach((ref) => {
+      if (typeof ref === 'function') {
+        ref(value);
+      } else if (ref && typeof ref === 'object') {
+        // oxlint-disable-next-line react(refs) -- callback executed by React on mount/unmount, not during render
+        ref.current = value;
+      }
+    });
+  };
+}
+
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   (
     {
@@ -456,20 +652,23 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
   ) => {
     const classes = `inline-flex items-center justify-center rounded-[var(--radius)] text-sm font-medium ${BASE_TRANSITION} focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent disabled:pointer-events-none ${VARIANTS[variant]} ${SIZES[size]} ${className}`;
 
-    if (asChild) {
-      const child = isValidElement<{ className?: string; ref?: React.Ref<unknown> }>(
-        children
-      )
-        ? children
-        : null;
-      if (child) {
-        return cloneElement(child, {
-          className: [child.props.className, classes].filter(Boolean).join(' '),
-          ref,
-          type,
-          ...props,
-        } as any);
-      }
+    const child = isValidElement<{ className?: string; ref?: Ref<unknown> }>(children)
+      ? children
+      : null;
+
+    const mergedRef = useMemo(
+      () => (child ? mergeRefs(child.props.ref, ref) : ref),
+      [child?.props.ref, ref, child]
+    );
+
+    if (asChild && child) {
+      return cloneElement(child, {
+        className: [child.props.className, classes].filter(Boolean).join(' '),
+        // oxlint-disable-next-line react(refs) -- mergedRef is a callback ref, not accessed during render
+        ref: mergedRef,
+        type,
+        ...props,
+      } as any);
     }
 
     return (
@@ -527,7 +726,7 @@ export function CTA({
   centered = true,
 }: CTAProps) {
   return (
-    <section className="bg-brand py-16">
+    <section className="bg-brand py-20 lg:py-24">
       <Container>
         <Reveal className={centered ? 'text-center' : ''}>
           <h2 className="mb-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">
@@ -542,6 +741,62 @@ export function CTA({
               <ArrowRight className="ml-2 h-4 w-4" />
             </Link>
           </Button>
+        </Reveal>
+      </Container>
+    </section>
+  );
+}
+</file>
+
+<file path="src/components/ui/PageHero.tsx">
+import { Reveal } from './Reveal';
+import { Container } from './Container';
+
+interface PageHeroProps {
+  title: string;
+  subtitle?: string;
+  image?: string;
+  size?: 'sm' | 'md' | 'lg';
+}
+
+const SIZE_CLASSES = {
+  sm: 'min-h-[30svh]',
+  md: 'min-h-[40svh]',
+  lg: 'min-h-[50svh]',
+};
+
+export function PageHero({ title, subtitle, image, size = 'md' }: PageHeroProps) {
+  return (
+    <section
+      className={`relative isolate flex items-center overflow-hidden bg-brand ${SIZE_CLASSES[size]}`}
+      aria-labelledby="page-hero-title"
+    >
+      {image && (
+        <img
+          src={image}
+          alt=""
+          fetchPriority="high"
+          decoding="async"
+          className="absolute inset-0 -z-20 h-full w-full object-cover"
+          aria-hidden="true"
+        />
+      )}
+      <div
+        className="absolute inset-0 -z-10 bg-gradient-to-r from-brand/95 via-brand/80 to-brand/50 md:from-brand/95 md:via-brand/80 md:to-brand/50"
+        aria-hidden="true"
+      />
+      <Container className="relative z-10 py-12">
+        <Reveal>
+          <div className="max-w-3xl">
+            <h1 id="page-hero-title" className="mb-4 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
+              {title}
+            </h1>
+            {subtitle && (
+              <p className="mx-auto max-w-3xl text-lg text-white/90 sm:text-xl">
+                {subtitle}
+              </p>
+            )}
+          </div>
         </Reveal>
       </Container>
     </section>
@@ -718,7 +973,7 @@ const TIMELINE_STEPS = [
 
 export function Timeline() {
   return (
-    <section className="bg-bg py-16">
+    <section className="bg-bg py-20 lg:py-24">
       <Container>
         <SectionHeading
           title="Cómo trabajamos"
@@ -741,13 +996,13 @@ export function Timeline() {
             ))}
           </div>
 
-          <div className="hidden lg:flex lg:items-start lg:justify-between">
-            <div className="relative flex-1" aria-hidden>
-              <div className="absolute top-[30px] left-0 right-0 h-0.5 bg-border" />
+          <div className="hidden lg:grid lg:grid-cols-4 lg:gap-8">
+            <div className="relative lg:col-span-4" aria-hidden>
+              <div className="absolute left-[12.5%] right-[12.5%] top-6 h-0.5 bg-border -z-10" />
             </div>
             {TIMELINE_STEPS.map((step, index) => (
               <Reveal key={step.number} delay={index * 0.1}>
-                <div className="relative flex flex-col items-center flex-1 px-2">
+                <div className="relative flex flex-col items-center">
                   <div className="relative flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-brand text-white font-semibold text-lg z-10" aria-hidden>
                     {step.number}
                   </div>
@@ -821,7 +1076,7 @@ export const pageMetadata: Record<string, Metadata> = {
   '/about': {
     title: 'Nosotros — SSCM',
     description:
-      'Conoce a SSCM: experiencia, análisis y red internacional para conectar tu empresa con proveedores globales. Metodología propia para abastecimiento seguro y eficiente.',
+      'Conoce a SSCM: experiencia, análisis y red internacional para conectar tu empresa con proveedores globales. Facilitamos conexiones de abastecimiento confiables.',
     openGraph: {
       title: 'Nosotros — SSCM',
       description:
@@ -850,6 +1105,23 @@ export const pageMetadata: Record<string, Metadata> = {
     },
     other: {
       canonical: `${SITE_URL}/contact`,
+    },
+  },
+  '/services': {
+    title: 'Servicios — SSCM',
+    description:
+      'SSCM ofrece búsqueda de proveedores, sourcing internacional, verificación y due diligence, y gestión de compras. Conectamos tu empresa con proveedores globales mediante un proceso en 4 etapas.',
+    openGraph: {
+      title: 'Servicios — SSCM',
+      description:
+        'SSCM ofrece búsqueda de proveedores, sourcing, verificación y gestión de compras internacionales.',
+      type: 'website',
+      url: `${SITE_URL}/services`,
+      siteName: SITE_NAME,
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: 'SSCM - Smart Supply Chain Management' }],
+    },
+    other: {
+      canonical: `${SITE_URL}/services`,
     },
   },
 };
@@ -1025,9 +1297,9 @@ export function ContactForm() {
         <Reveal>
           <div className="grid gap-12 lg:grid-cols-2">
             <div className="lg:pr-8">
-              <h1 className="mb-4 text-3xl font-semibold tracking-tight text-heading sm:text-4xl">
+              <h2 className="mb-4 text-3xl font-semibold tracking-tight text-heading sm:text-4xl">
                 Enviá tu consulta
-              </h1>
+              </h2>
               <p className="mb-8 text-lg text-muted">
                 Completá el formulario y nos pondremos en contacto con vos lo
                 antes posible.
@@ -1387,11 +1659,11 @@ import { SectionHeading } from '../../../components/ui/SectionHeading';
 
 export function AboutPreview() {
   return (
-    <section className="bg-surface py-16">
+    <section className="bg-surface py-20 lg:py-24">
       <Container>
         <SectionHeading
           title="Quiénes somos"
-          subtitle="SSM (Smart Supply Chain Management) conecta empresas con proveedores externos mediante experiencia, análisis y una red internacional de contactos."
+          subtitle="SSCM (Smart Supply Chain Management) conecta empresas con proveedores externos mediante experiencia, análisis y una red internacional de contactos."
         />
         <Reveal className="text-center">
           <Link
@@ -1416,83 +1688,50 @@ import { Container } from '../../../components/ui/Container';
 
 export function HeroSection() {
   return (
-    <section className="bg-brand pb-24 pt-16 lg:pb-32 lg:pt-24">
-      <Container className="relative">
-        <div className="grid items-center gap-12 lg:grid-cols-2">
-          <div className="max-w-2xl">
-            <p className="mb-4 text-sm font-medium uppercase tracking-wider text-white/80">
-              Smart Supply Chain Management
-            </p>
-            <h1 className="mb-6 text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl">
-              Conectamos tu empresa con proveedores globales
-            </h1>
-            <p className="mb-10 max-w-xl text-lg text-white/80 sm:text-xl">
-              SSCM ayuda a empresas a construir conexiones confiables en la cadena de suministro
-              entre China y mercados internacionales.
-            </p>
-            <div className="flex flex-col gap-4 sm:flex-row">
-              <Button asChild variant="secondary" size="md">
-                <Link to="/contact">
-                  Contactanos
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-              <Button asChild variant="ghost" size="md" className="border border-white/30 text-white hover:bg-white/10">
-                <Link to="/about">
-                  Conocé cómo trabajamos
-                </Link>
-              </Button>
-            </div>
-          </div>
-          <div className="relative lg:ml-auto" aria-hidden>
-            <svg
-              viewBox="0 0 400 280"
-              className="w-full max-w-md h-auto mx-auto lg:max-w-lg"
-              preserveAspectRatio="xMidYMid meet"
-              role="img"
-              aria-label="Diagrama: Cliente conecta con Proveedor a través de SSCM"
-            >
-              <defs>
-                <marker
-                  id="arrowhead"
-                  markerWidth="10"
-                  markerHeight="7"
-                  refX="9"
-                  refY="3.5"
-                  orient="auto"
-                >
-                  <polygon points="0 0, 10 3.5, 0 7" fill="currentColor" />
-                </marker>
-              </defs>
-              <line
-                x1="60"
-                y1="140"
-                x2="160"
-                y2="140"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeDasharray="8 4"
-                markerEnd="url(#arrowhead)"
-                className="text-white/60"
-              />
-              <line
-                x1="240"
-                y1="140"
-                x2="340"
-                y2="140"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeDasharray="8 4"
-                markerEnd="url(#arrowhead)"
-                className="text-white/60"
-              />
-              <circle cx="110" cy="140" r="45" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/40" />
-              <circle cx="290" cy="140" r="45" fill="none" stroke="currentColor" strokeWidth="2" className="text-white/40" />
-              <circle cx="200" cy="140" r="50" fill="var(--color-brand)" stroke="currentColor" strokeWidth="2" className="text-white" />
-              <text x="110" y="130" textAnchor="middle" fill="currentColor" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="600" className="text-white/80">Cliente</text>
-              <text x="200" y="135" textAnchor="middle" fill="white" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="700" letterSpacing="1">SSCM</text>
-              <text x="290" y="130" textAnchor="middle" fill="currentColor" fontFamily="system-ui, sans-serif" fontSize="12" fontWeight="600" className="text-white/80">Proveedor</text>
-            </svg>
+    <section
+      className="relative isolate flex min-h-[85svh] items-center overflow-hidden bg-brand"
+      aria-labelledby="hero-title"
+    >
+      <img
+        src="/hero-bg.jpg"
+        alt=""
+        fetchPriority="high"
+        decoding="async"
+        className="absolute inset-0 -z-20 h-full w-full object-cover"
+        aria-hidden="true"
+      />
+      <div
+        className="absolute inset-0 -z-10 bg-brand/85 md:bg-gradient-to-r md:from-brand/95 md:via-brand/80 md:to-brand/50"
+        aria-hidden="true"
+      />
+      <Container className="relative z-10 py-16">
+        <div className="max-w-2xl">
+          <p className="mb-4 text-sm font-medium uppercase tracking-wider text-white/80">
+            Smart Supply Chain Management
+          </p>
+          <h1
+            id="hero-title"
+            className="mb-6 text-4xl font-semibold leading-tight text-white sm:text-5xl lg:text-6xl"
+          >
+            Conectamos tu empresa con proveedores globales
+          </h1>
+          <p className="mb-10 max-w-xl text-lg text-white/80 sm:text-xl">
+            SSCM ayuda a empresas a construir conexiones confiables en la cadena de suministro
+            entre China y mercados internacionales.
+          </p>
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <Button asChild variant="secondary" size="md">
+              <Link to="/contact">
+                Solicitar asesoramiento
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
+            <Button asChild variant="ghost" size="md" className="border border-white/30 text-white hover:bg-white/10">
+              <Link to="/services">
+                Ver servicios
+                <ArrowRight className="ml-2 h-4 w-4" />
+              </Link>
+            </Button>
           </div>
         </div>
       </Container>
@@ -1506,6 +1745,7 @@ import { Reveal } from '../components/ui/Reveal';
 import { Container } from '../components/ui/Container';
 import { SectionHeading } from '../components/ui/SectionHeading';
 import { CTA } from '../components/ui/CTA';
+import { PageHero } from '../components/ui/PageHero';
 import { SITE } from '../config/site';
 
 export default function About() {
@@ -1514,33 +1754,22 @@ export default function About() {
 
   return (
     <>
-      <section className="relative overflow-hidden bg-brand py-20 text-white sm:py-28">
-        <Container className="relative z-10">
-          <div className="max-w-3xl">
-            <Reveal>
-              <h1 className="mb-6 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">
-                Nosotros
-              </h1>
-              <p className="mx-auto max-w-3xl text-lg text-white/90 sm:text-xl">
-                SSCM conecta empresas con proveedores globales mediante experiencia,
-                análisis y una red internacional de contactos.
-              </p>
-            </Reveal>
-          </div>
-        </Container>
-      </section>
+      <PageHero
+        title="Nosotros"
+        subtitle="SSCM conecta empresas con proveedores y oportunidades comerciales en China y mercados internacionales. Combinamos experiencia, análisis y una red internacional de contactos para facilitar conexiones de abastecimiento confiables."
+        size="md"
+      />
 
-      <section className="bg-surface py-16">
+      <section className="bg-surface py-20 lg:py-24">
         <Container>
           <Reveal>
             <SectionHeading title="Quién es SSCM" />
             <div className="mx-auto max-w-3xl text-center">
               <p className="text-lg text-muted">
-                Smart Supply Chain Management nace para resolver la brecha entre
-                empresas que necesitan abastecerse y proveedores confiables en
-                mercados internacionales. Combinamos conocimiento de mercado,
-                red de contactos verificada y metodología propia para que cada
-                conexión sea segura, eficiente y duradera.
+                SSCM conecta empresas con proveedores y oportunidades comerciales
+                en China y mercados internacionales. Combinamos experiencia,
+                análisis y una red internacional de contactos para facilitar
+                conexiones de abastecimiento confiables.
               </p>
             </div>
           </Reveal>
@@ -1582,13 +1811,17 @@ export default function About() {
 </file>
 
 <file path="src/pages/Contact.tsx">
-import { HeroContact } from './Contact/components/HeroContact';
 import { ContactForm } from './Contact/components/ContactForm';
+import { PageHero } from '../components/ui/PageHero';
 
 export default function Contact() {
   return (
     <>
-      <HeroContact />
+      <PageHero
+        title="Contacto"
+        subtitle="Contanos qué necesitás y analizaremos cómo podemos ayudarte a encontrar el contacto adecuado para tu necesidad comercial."
+        size="md"
+      />
       <ContactForm />
     </>
   );
@@ -1600,12 +1833,25 @@ import { HeroSection } from './Home/components/HeroSection';
 import { Timeline } from '../components/ui/Timeline';
 import { AboutPreview } from './Home/components/AboutPreview';
 import { CTA } from '../components/ui/CTA';
+import { Link } from 'react-router-dom';
+import { ArrowRight } from 'lucide-react';
 
 export default function Home() {
   return (
     <>
       <HeroSection />
       <Timeline />
+      <div className="py-12 lg:py-16">
+        <div className="text-center">
+          <Link
+            to="/services"
+            className="inline-flex items-center gap-2 text-sm font-medium text-brand hover:text-brand-2"
+          >
+            Ver servicios en detalle
+            <ArrowRight className="h-4 w-4" />
+          </Link>
+        </div>
+      </div>
       <AboutPreview />
       <CTA
         title="¿Buscás un proveedor para tu negocio?"
@@ -1648,12 +1894,191 @@ export default function NotFound() {
 }
 </file>
 
+<file path="src/pages/Services.tsx">
+import { Reveal } from '../components/ui/Reveal';
+import { Container } from '../components/ui/Container';
+import { SectionHeading } from '../components/ui/SectionHeading';
+import { CTA } from '../components/ui/CTA';
+import { PageHero } from '../components/ui/PageHero';
+import { Search, Filter, CheckCircle, Link as LinkIcon, Check } from 'lucide-react';
+
+const STAGES = [
+  {
+    number: '01',
+    title: 'Diagnóstico',
+    icon: Search,
+    description:
+      'Entendemos la necesidad, el contexto y los objetivos de tu empresa para definir el alcance del caso. Analizamos tus requerimientos técnicos, comerciales y de calidad para establecer los criterios de búsqueda.',
+    bullets: [
+      'Levantamiento de requisitos y especificaciones del producto o servicio buscado',
+      'Definición de criterios de calificación: capacidad, certificaciones, cumplimiento normativo',
+      'Identificación de mercados objetivo y estrategia de acercamiento',
+    ],
+  },
+  {
+    number: '02',
+    title: 'Análisis',
+    icon: Filter,
+    description:
+      'Evaluamos los requerimientos y alternativas para identificar el tipo de proveedor adecuado. Cruzamos tu perfil de necesidad con nuestra base de conocimiento de mercados internacionales.',
+    bullets: [
+      'Mapeo de proveedores potenciales por categoría, geografía y capacidad',
+      'Análisis comparativo de ventajas competitivas: costo, lead time, calidad',
+      'Evaluación de riesgos: cadena de suministro, regulaciones, estabilidad financiera',
+    ],
+  },
+  {
+    number: '03',
+    title: 'Selección de proveedores',
+    icon: CheckCircle,
+    description:
+      'Identificamos y evaluamos proveedores potenciales utilizando nuestra red de contactos. Presentamos una shortlist calificada con la información necesaria para tu toma de decisión.',
+    bullets: [
+      'Validación de capacidades productivas, certificaciones y referencias comerciales',
+      'Solicitud y análisis de cotizaciones técnicas y comerciales (RFQ/RFP)',
+      'Informe comparativo con recomendación fundamentada por proveedor',
+    ],
+  },
+  {
+    number: '04',
+    title: 'Conexión',
+    icon: LinkIcon,
+    description:
+      'Facilitamos el primer contacto y el inicio de la relación comercial entre las partes. Acompañamos la negociación, la formalización de acuerdos y el seguimiento inicial.',
+    bullets: [
+      'Coordinación de reuniones técnicas y comerciales entre comprador y proveedor',
+      'Apoyo en negociación de condiciones: precios, plazos, Incoterms, garantías',
+      'Seguimiento post-acuerdo: hitos de entrega, control de calidad, escalamiento',
+    ],
+  },
+];
+
+export default function Services() {
+  return (
+    <>
+      <PageHero
+        title="Servicios"
+        subtitle="SSCM te acompaña en todo el ciclo: desde el diagnóstico de tu necesidad hasta la conexión con el proveedor adecuado en China y mercados internacionales."
+        size="md"
+      />
+
+      <section className="bg-surface py-20 lg:py-24">
+        <Container>
+          <Reveal>
+            <SectionHeading
+              title="Cómo trabajamos"
+              subtitle="Cuatro etapas para conectar tu empresa con proveedores globales de forma segura y eficiente"
+            />
+          </Reveal>
+
+          <div className="mt-16 space-y-12 lg:space-y-16">
+            {STAGES.map((stage, index) => (
+              <Reveal key={stage.number} delay={index * 0.1}>
+                <div className="flex flex-col gap-8 lg:flex-row lg:gap-12 lg:items-start">
+                  <div className="flex-shrink-0 w-full lg:w-64">
+                    <div className="flex h-16 w-16 items-center justify-center rounded-[var(--radius)] bg-brand/10 text-brand">
+                      <stage.icon className="h-8 w-8" aria-hidden="true" />
+                    </div>
+                    <h2 className="mt-6 text-2xl font-semibold text-heading">{stage.number} {stage.title}</h2>
+                    <p className="mt-4 text-muted">{stage.description}</p>
+                    <ul className="mt-6 space-y-3" role="list">
+                      {stage.bullets.map((bullet, i) => (
+                        <li key={i} className="flex gap-3 text-muted">
+                          <Check className="flex-shrink-0 h-5 w-5 text-brand mt-0.5" aria-hidden="true" />
+                          <span>{bullet}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="hidden lg:block lg:flex-1 w-px bg-border self-stretch" aria-hidden="true" />
+                </div>
+              </Reveal>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      <section className="bg-bg py-20 lg:py-24" aria-labelledby="diagram-title">
+        <Container>
+          <Reveal>
+            <h2 id="diagram-title" className="sr-only">Diagrama: Cliente — SSCM — Proveedor</h2>
+            <div className="relative w-full overflow-x-auto">
+              <svg
+                viewBox="0 0 1200 280"
+                className="w-full max-w-none h-auto"
+                preserveAspectRatio="xMidYMid meet"
+                role="img"
+                aria-label="Diagrama: Cliente a la izquierda, SSCM en el centro, Proveedor a la derecha, conectados por líneas con flechas"
+              >
+                <defs>
+                  <marker
+                    id="arrowhead-large"
+                    markerWidth="14"
+                    markerHeight="10"
+                    refX="12"
+                    refY="5"
+                    orient="auto"
+                  >
+                    <polygon points="0 0, 14 5, 0 10" fill="currentColor" />
+                  </marker>
+                </defs>
+                <line
+                  x1="180"
+                  y1="140"
+                  x2="420"
+                  y2="140"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeDasharray="12 6"
+                  markerEnd="url(#arrowhead-large)"
+                  className="text-brand/40"
+                />
+                <line
+                  x1="780"
+                  y1="140"
+                  x2="1020"
+                  y2="140"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeDasharray="12 6"
+                  markerEnd="url(#arrowhead-large)"
+                  className="text-brand/40"
+                />
+                <g className="text-brand">
+                  <circle cx="300" cy="140" r="80" fill="none" stroke="currentColor" strokeWidth="3" className="text-brand/30" />
+                  <circle cx="900" cy="140" r="80" fill="none" stroke="currentColor" strokeWidth="3" className="text-brand/30" />
+                  <circle cx="600" cy="140" r="90" fill="var(--color-brand)" stroke="currentColor" strokeWidth="3" />
+                </g>
+                <text x="300" y="110" textAnchor="middle" fill="currentColor" fontFamily="system-ui, sans-serif" fontSize="18" fontWeight="600" className="text-brand/80">Cliente</text>
+                <text x="600" y="138" textAnchor="middle" fill="white" fontFamily="system-ui, sans-serif" fontSize="22" fontWeight="700" letterSpacing="1">SSCM</text>
+                <text x="900" y="110" textAnchor="middle" fill="currentColor" fontFamily="system-ui, sans-serif" fontSize="18" fontWeight="600" className="text-brand/80">Proveedor</text>
+                <text x="300" y="165" textAnchor="middle" fill="currentColor" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="500" className="text-brand/70">Define la necesidad</text>
+                <text x="600" y="170" textAnchor="middle" fill="white" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="500">Diagnostica · Analiza · Selecciona · Conecta</text>
+                <text x="900" y="165" textAnchor="middle" fill="currentColor" fontFamily="system-ui, sans-serif" fontSize="14" fontWeight="500" className="text-brand/70">Entrega la solución</text>
+              </svg>
+            </div>
+          </Reveal>
+        </Container>
+      </section>
+
+      <CTA
+        title="¿Buscás un proveedor para tu negocio?"
+        subtitle="Contanos qué necesitás y analizaremos cómo podemos ayudarte a encontrar el contacto adecuado para tu necesidad comercial."
+        buttonText="Solicitar asesoramiento"
+        href="/contact"
+      />
+    </>
+  );
+}
+</file>
+
 <file path="src/routes/AppRoutes.tsx">
-import { Routes, Route, Navigate } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import PublicLayout from '../layouts/PublicLayout';
 import Home from '../pages/Home';
 import About from '../pages/About';
 import Contact from '../pages/Contact';
+import Services from '../pages/Services';
 import NotFound from '../pages/NotFound';
 
 export default function AppRoutes() {
@@ -1661,9 +2086,9 @@ export default function AppRoutes() {
     <Routes>
       <Route element={<PublicLayout />}>
         <Route path="/" element={<Home />} />
+        <Route path="/services" element={<Services />} />
         <Route path="/about" element={<About />} />
         <Route path="/contact" element={<Contact />} />
-        <Route path="/services" element={<Navigate to="/" replace />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Routes>
@@ -1737,6 +2162,7 @@ export async function sendLead(values: LeadFormValues): Promise<LeadResponse> {
     pais: values.pais ?? null,
     motivo: values.motivo ?? null,
     mensaje: values.mensaje,
+    website: values.website ?? null,
   };
 
   return apiFetch<LeadResponse>('/api/leads', {
@@ -1900,11 +2326,8 @@ dist-ssr
 
 <file path=".oxlintrc.json">
 {
-  "$schema": "./node_modules/oxlint/configuration_schema.json",
-  "plugins": ["react", "typescript", "oxc"],
   "rules": {
-    "react/rules-of-hooks": "error",
-    "react/only-export-components": ["warn", { "allowConstantExport": true }]
+    "refs": "off"
   }
 }
 </file>
@@ -1914,13 +2337,28 @@ dist-ssr
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="/favicon.png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SSCM — Smart Supply Chain Management</title>
     <meta
       name="description"
       content="SSCM conecta empresas con proveedores y oportunidades comerciales en China y mercados internacionales para fortalecer sus cadenas de suministro."
     />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="SSCM — Smart Supply Chain Management" />
+    <meta property="og:description" content="SSCM conecta empresas con proveedores y oportunidades comerciales en China y mercados internacionales para fortalecer sus cadenas de suministro." />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:site_name" content="SSCM — Smart Supply Chain Management" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="SSCM — Smart Supply Chain Management" />
+    <meta name="twitter:description" content="SSCM conecta empresas con proveedores y oportunidades comerciales en China y mercados internacionales para fortalecer sus cadenas de suministro." />
+    <meta name="twitter:image" content="/og-image.png" />
   </head>
   <body>
     <div id="root"></div>
@@ -1937,7 +2375,7 @@ dist-ssr
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/generate-seo.mjs && node scripts/generate-og-image.mjs && tsc -b && vite build",
+    "build": "node scripts/generate-seo.mjs && node scripts/generate-vercel.mjs && node scripts/generate-og-image.mjs && tsc -b && vite build",
     "lint": "oxlint",
     "preview": "vite preview"
   },
@@ -2061,65 +2499,6 @@ See the [Oxlint rules documentation](https://oxc.rs/docs/guide/usage/linter/rule
     "noFallthroughCasesInSwitch": true
   },
   "include": ["vite.config.ts"]
-}
-</file>
-
-<file path="vercel.json">
-{
-  "buildCommand": "npm run build",
-  "outputDirectory": "dist",
-  "framework": "vite",
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ],
-  "headers": [
-    {
-      "source": "/(.*)",
-      "headers": [
-        {
-          "key": "X-Content-Type-Options",
-          "value": "nosniff"
-        },
-        {
-          "key": "Referrer-Policy",
-          "value": "strict-origin-when-cross-origin"
-        },
-        {
-          "key": "X-Frame-Options",
-          "value": "SAMEORIGIN"
-        },
-        {
-          "key": "Content-Security-Policy",
-          "value": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://api.resend.com; frame-ancestors 'self'; form-action 'self'; base-uri 'self';"
-        },
-        {
-          "key": "Permissions-Policy",
-          "value": "camera=(), microphone=(), geolocation=(), payment=()"
-        }
-      ]
-    },
-    {
-      "source": "/assets/(.*)",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    },
-    {
-      "source": "/(.*).woff2",
-      "headers": [
-        {
-          "key": "Cache-Control",
-          "value": "public, max-age=31536000, immutable"
-        }
-      ]
-    }
-  ]
 }
 </file>
 

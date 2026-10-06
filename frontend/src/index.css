@@ -2,19 +2,21 @@
 @import "@fontsource-variable/plus-jakarta-sans";
 
 @theme {
-  --color-brand: #002840;
-  --color-brand-2: #004B68;
-  --color-accent: #087EA4;
-  --color-bg: #F7FAFC;
+  /* Paleta moderna y de alto contraste inspirada en interfaces técnicas */
+  --color-brand: #1A1A1A;
+  --color-brand-2: #0A0A0A;
+  --color-accent: #2563EB;
+  --color-bg: #FAFAFA;
   --color-surface: #FFFFFF;
-  --color-muted: #64748B;
-  --color-border: #E2E8F0;
-  --color-text: #334155;
-  --color-heading: #002840;
+  --color-muted: #71717A;
+  --color-border: #E4E4E7;
+  --color-text: #27272A;
+  --color-heading: #1A1A1A;
 
   --font-sans: "Plus Jakarta Sans Variable", system-ui, sans-serif;
 
-  --radius: 8px;
+  /* Bordes ligeramente más definidos para un aspecto geométrico */
+  --radius: 6px;
 
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
   --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
@@ -50,17 +52,17 @@
     color: var(--color-heading);
     font-weight: 600;
     margin: 0;
-    letter-spacing: -0.02em;
+    letter-spacing: -0.03em; /* Tracking ligeramente más ajustado para títulos */
   }
 
   h1 {
-    font-size: clamp(2.25rem, 5vw, 3.5rem);
-    line-height: 1.1;
+    font-size: clamp(2.5rem, 6vw, 4rem);
+    line-height: 1.05;
   }
 
   h2 {
-    font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-    line-height: 1.2;
+    font-size: clamp(1.875rem, 4vw, 2.75rem);
+    line-height: 1.15;
   }
 
   h3 {

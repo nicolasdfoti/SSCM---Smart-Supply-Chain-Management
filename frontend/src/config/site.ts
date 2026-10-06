@@ -2,8 +2,8 @@ export const SITE = {
   owner: {
     name: undefined,
     role: undefined,
-    photo: undefined,
     bio: undefined,
+    linkedin: undefined,
   },
   email: undefined,
   phone: undefined,

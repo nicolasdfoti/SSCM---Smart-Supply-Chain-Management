@@ -83,6 +83,23 @@ export const pageMetadata: Record<string, Metadata> = {
       canonical: `${SITE_URL}/contact`,
     },
   },
+  '/services': {
+    title: 'Servicios — SSCM',
+    description:
+      'SSCM ofrece búsqueda de proveedores, sourcing internacional, verificación y due diligence, y gestión de compras. Conectamos tu empresa con proveedores globales mediante un proceso en 4 etapas.',
+    openGraph: {
+      title: 'Servicios — SSCM',
+      description:
+        'SSCM ofrece búsqueda de proveedores, sourcing, verificación y gestión de compras internacionales.',
+      type: 'website',
+      url: `${SITE_URL}/services`,
+      siteName: SITE_NAME,
+      images: [{ url: OG_IMAGE, width: 1200, height: 630, alt: 'SSCM - Smart Supply Chain Management' }],
+    },
+    other: {
+      canonical: `${SITE_URL}/services`,
+    },
+  },
 };
 
 export function getMetadata(pathname: string): Metadata {

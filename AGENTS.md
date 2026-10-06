@@ -25,6 +25,7 @@ The initial public website will contain:
 
 - Home / Landing Page
 - About Us (Nosotros)
+- Services (Servicios)
 - Contact (Contacto)
 
 The future private application will contain:
@@ -179,6 +180,7 @@ Examples:
 
 - Home
 - About
+- Services
 - Contact
 - Login
 - Dashboard
@@ -230,6 +232,7 @@ The initial public routes are:
 
 /
 /about
+/services
 /contact
 
 A future administrative area will use routes under:
