@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Link, NavLink, useLocation } from 'react-router-dom';
-import { Menu, X, Globe } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
+import logo from '../../assets/brand/logo.png';
 
 const NAV_LINKS = [
   { label: 'Home', to: '/' },
@@ -26,7 +27,7 @@ export function Navbar() {
             className="flex items-center gap-2 text-white"
             aria-label="SSCM - Home"
           >
-            <Globe className="h-8 w-8" aria-hidden />
+            <img src={logo} alt="SSCM Logo" className="h-8 w-8" />
             <span className="text-xl font-semibold sm:text-2xl">SSCM</span>
           </Link>
 

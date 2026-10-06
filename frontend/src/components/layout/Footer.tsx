@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom';
-import { Globe } from 'lucide-react';
 import { Container } from '../ui/Container';
 
 const YEAR = new Date().getFullYear();
@@ -10,7 +9,6 @@ export function Footer() {
       <Container className="py-12">
         <div className="flex flex-col gap-8 md:flex-row md:items-center md:justify-between">
           <div className="flex items-center gap-2">
-            <Globe className="h-8 w-8" aria-hidden />
             <div>
               <div className="text-lg font-semibold">SSCM</div>
               <div className="text-sm text-white/80">
