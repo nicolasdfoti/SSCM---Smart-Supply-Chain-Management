@@ -6,7 +6,7 @@ import { Container } from '../../../components/ui/Container';
 
 export function CTAAbout() {
   return (
-    <section className="bg-[#002840] py-16">
+    <section className="bg-brand py-16">
       <Container>
         <Reveal className="text-center">
           <h2 className="mb-4 text-3xl font-semibold tracking-tight text-white sm:text-4xl lg:text-5xl">

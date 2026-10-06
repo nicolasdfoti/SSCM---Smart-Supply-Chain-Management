@@ -6,7 +6,7 @@ import heroImage from '../../../assets/images/hero.jpg';
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden bg-[#002840] pb-24 pt-16 lg:pb-32 lg:pt-24">
+    <section className="relative overflow-hidden bg-brand pb-24 pt-16 lg:pb-32 lg:pt-24">
       <div className="absolute inset-0 opacity-60">
         <img
           src={heroImage}
@@ -14,7 +14,7 @@ export function HeroSection() {
           aria-hidden
           className="absolute inset-0 h-full w-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#002840] via-[#002840]/95 to-[#002840]/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-brand via-brand/95 to-brand/80" />
       </div>
 
       <Container className="relative z-10">

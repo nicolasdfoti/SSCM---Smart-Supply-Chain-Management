@@ -3,7 +3,7 @@ import { Container } from '../../../components/ui/Container';
 
 export function HeroAbout() {
   return (
-    <section className="relative overflow-hidden bg-[#002840] py-20 text-white sm:py-28">
+    <section className="relative overflow-hidden bg-brand py-20 text-white sm:py-28">
       <Container className="relative z-10">
         <div className="max-w-3xl">
           <Reveal>

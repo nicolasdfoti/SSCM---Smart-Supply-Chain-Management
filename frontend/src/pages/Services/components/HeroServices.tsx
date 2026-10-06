@@ -2,8 +2,8 @@ import { Reveal } from '../../../components/ui/Reveal';
 import { Container } from '../../../components/ui/Container';
 
 export function HeroServices() {
-    return (
-    <section className="bg-[#002840] py-20">
+  return (
+    <section className="bg-brand py-20">
       <Container>
         <Reveal className="text-center">
           <h1 className="mb-6 text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl lg:text-6xl">

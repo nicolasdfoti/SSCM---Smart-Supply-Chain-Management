@@ -27,7 +27,7 @@ const PREVIEW_SERVICES = [
 
 export function ServicesPreview() {
   return (
-    <section className="bg-[#f7fafc] py-16">
+    <section className="bg-bg py-16">
       <Container>
         <SectionHeading
           title="Our Services"
@@ -37,15 +37,15 @@ export function ServicesPreview() {
           {PREVIEW_SERVICES.map((service) => (
             <div
               key={service.title}
-              className="rounded-lg border border-slate-200 bg-white p-6 shadow-sm"
+              className="rounded-[var(--radius)] border border-border bg-surface p-6 shadow-sm"
             >
-              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-lg bg-[#002840]/10">
-                <service.icon className="h-6 w-6 text-[#002840]" aria-hidden />
+              <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-[var(--radius)] bg-brand/10">
+                <service.icon className="h-6 w-6 text-brand" aria-hidden />
               </div>
-              <h3 className="mb-2 text-lg font-semibold text-slate-900">
+              <h3 className="mb-2 text-lg font-semibold text-heading">
                 {service.title}
               </h3>
-              <p className="text-sm text-slate-600">{service.description}</p>
+              <p className="text-sm text-muted">{service.description}</p>
             </div>
           ))}
         </div>

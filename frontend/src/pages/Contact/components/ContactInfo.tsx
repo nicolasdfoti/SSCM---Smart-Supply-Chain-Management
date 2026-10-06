@@ -3,8 +3,8 @@ import { Container } from '../../../components/ui/Container';
 import { SectionHeading } from '../../../components/ui/SectionHeading';
 
 export function ContactInfo() {
-    return (
-    <section className="bg-white py-16">
+  return (
+    <section className="bg-surface py-16">
       <Container>
         <Reveal>
           <SectionHeading

@@ -24,7 +24,7 @@ interface FormErrors {
 }
 
 export function ContactForm() {
-    const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<FormData>({
     nombre: '',
     empresa: '',
     email: '',
@@ -78,23 +78,27 @@ export function ContactForm() {
     }
   };
 
+  const inputBase = 'w-full rounded-[var(--radius)] border px-4 py-3 text-heading placeholder-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/10';
+  const inputError = 'border-red-500';
+  const inputDefault = 'border-border';
+
   return (
-    <section className="bg-[#F7FAFC] py-16">
+    <section className="bg-bg py-16">
       <Container>
         <Reveal>
           <div className="mx-auto max-w-3xl">
             <div className="mb-10 text-center">
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-900 sm:text-4xl">
-                Envíenos su consulta
+              <h2 className="text-3xl font-semibold tracking-tight text-heading sm:text-4xl">
+                Enviá tu consulta
               </h2>
-              <p className="mt-4 text-lg text-slate-600">
-                Completá el formulario y nos pondremos en contacto con usted lo
+              <p className="mt-4 text-lg text-muted">
+                Completá el formulario y nos pondremos en contacto con vos lo
                 antes posible.
               </p>
             </div>
 
             {submitted ? (
-              <div className="rounded-lg border border-green-200 bg-green-50 p-8 text-center">
+              <div className="rounded-[var(--radius)] border border-green-200 bg-green-50 p-8 text-center">
                 <h3 className="mb-2 text-xl font-semibold text-green-900">
                   Consulta enviada
                 </h3>
@@ -107,13 +111,13 @@ export function ContactForm() {
               <form
                 noValidate
                 onSubmit={handleSubmit}
-                className="rounded-lg border border-slate-200 bg-white p-8 shadow-sm"
+                className="rounded-[var(--radius)] border border-border bg-surface p-8 shadow-sm"
               >
                 <div className="grid gap-6 md:grid-cols-2">
                   <div>
                     <label
                       htmlFor="nombre"
-                      className="mb-2 block text-sm font-medium text-slate-900"
+                      className="mb-2 block text-sm font-medium text-heading"
                     >
                       Nombre *
                     </label>
@@ -123,9 +127,7 @@ export function ContactForm() {
                       name="nombre"
                       value={formData.nombre}
                       onChange={handleChange}
-                      className={`w-full rounded-lg border px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-[#087ea4] focus:outline-none focus:ring-2 focus:ring-[#087ea4]/10 ${
-                        errors.nombre ? 'border-red-500' : 'border-slate-300'
-                      }`}
+                      className={`${inputBase} ${errors.nombre ? inputError : inputDefault}`}
                       placeholder="Ingresa tu nombre"
                       aria-invalid={errors.nombre ? 'true' : 'false'}
                     />
@@ -137,7 +139,7 @@ export function ContactForm() {
                   <div>
                     <label
                       htmlFor="empresa"
-                      className="mb-2 block text-sm font-medium text-slate-900"
+                      className="mb-2 block text-sm font-medium text-heading"
                     >
                       Empresa *
                     </label>
@@ -147,9 +149,7 @@ export function ContactForm() {
                       name="empresa"
                       value={formData.empresa}
                       onChange={handleChange}
-                      className={`w-full rounded-lg border px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-[#087ea4] focus:outline-none focus:ring-2 focus:ring-[#087ea4]/10 ${
-                        errors.empresa ? 'border-red-500' : 'border-slate-300'
-                      }`}
+                      className={`${inputBase} ${errors.empresa ? inputError : inputDefault}`}
                       placeholder="Nombre de tu empresa"
                       aria-invalid={errors.empresa ? 'true' : 'false'}
                     />
@@ -161,7 +161,7 @@ export function ContactForm() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="mb-2 block text-sm font-medium text-slate-900"
+                      className="mb-2 block text-sm font-medium text-heading"
                     >
                       Email *
                     </label>
@@ -171,9 +171,7 @@ export function ContactForm() {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className={`w-full rounded-lg border px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-[#087ea4] focus:outline-none focus:ring-2 focus:ring-[#087ea4]/10 ${
-                        errors.email ? 'border-red-500' : 'border-slate-300'
-                      }`}
+                      className={`${inputBase} ${errors.email ? inputError : inputDefault}`}
                       placeholder="correo@ejemplo.com"
                       aria-invalid={errors.email ? 'true' : 'false'}
                     />
@@ -185,7 +183,7 @@ export function ContactForm() {
                   <div>
                     <label
                       htmlFor="telefono"
-                      className="mb-2 block text-sm font-medium text-slate-900"
+                      className="mb-2 block text-sm font-medium text-heading"
                     >
                       Teléfono
                     </label>
@@ -195,7 +193,7 @@ export function ContactForm() {
                       name="telefono"
                       value={formData.telefono}
                       onChange={handleChange}
-                      className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-[#087ea4] focus:outline-none focus:ring-2 focus:ring-[#087ea4]/10"
+                      className={inputBase}
                       placeholder="+00 000 000 0000"
                     />
                   </div>
@@ -203,7 +201,7 @@ export function ContactForm() {
                   <div>
                     <label
                       htmlFor="pais"
-                      className="mb-2 block text-sm font-medium text-slate-900"
+                      className="mb-2 block text-sm font-medium text-heading"
                     >
                       País
                     </label>
@@ -213,7 +211,7 @@ export function ContactForm() {
                       name="pais"
                       value={formData.pais}
                       onChange={handleChange}
-                      className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-[#087ea4] focus:outline-none focus:ring-2 focus:ring-[#087ea4]/10"
+                      className={inputBase}
                       placeholder="País"
                     />
                   </div>
@@ -221,7 +219,7 @@ export function ContactForm() {
                   <div>
                     <label
                       htmlFor="motivo"
-                      className="mb-2 block text-sm font-medium text-slate-900"
+                      className="mb-2 block text-sm font-medium text-heading"
                     >
                       Motivo de consulta
                     </label>
@@ -230,9 +228,9 @@ export function ContactForm() {
                       name="motivo"
                       value={formData.motivo}
                       onChange={handleChange}
-                      className="w-full rounded-lg border border-slate-300 px-4 py-3 text-slate-900 focus:border-[#087ea4] focus:outline-none focus:ring-2 focus:ring-[#087ea4]/10"
+                      className={inputBase}
                     >
-                      <option value="">Seleccione un motivo</option>
+                      <option value="">Seleccioná un motivo</option>
                       <option value="búsqueda de proveedores">
                         Búsqueda de proveedores
                       </option>
@@ -248,7 +246,7 @@ export function ContactForm() {
                 <div className="mt-6">
                   <label
                     htmlFor="mensaje"
-                    className="mb-2 block text-sm font-medium text-slate-900"
+                    className="mb-2 block text-sm font-medium text-heading"
                   >
                     Mensaje *
                   </label>
@@ -258,10 +256,8 @@ export function ContactForm() {
                     rows={6}
                     value={formData.mensaje}
                     onChange={handleChange}
-                    className={`w-full rounded-lg border px-4 py-3 text-slate-900 placeholder-slate-400 focus:border-[#087ea4] focus:outline-none focus:ring-2 focus:ring-[#087ea4]/10 ${
-                      errors.mensaje ? 'border-red-500' : 'border-slate-300'
-                    }`}
-                    placeholder="Describa brevemente su necesidad comercial..."
+                    className={`${inputBase} ${errors.mensaje ? inputError : inputDefault}`}
+                    placeholder="Describí brevemente tu necesidad comercial..."
                     aria-invalid={errors.mensaje ? 'true' : 'false'}
                   />
                   {errors.mensaje && (
@@ -275,7 +271,7 @@ export function ContactForm() {
                   </Button>
                 </div>
 
-                <p className="mt-6 text-center text-sm text-slate-500">
+                <p className="mt-6 text-center text-sm text-muted">
                   * Campos obligatorios.
                 </p>
               </form>

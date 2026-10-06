@@ -3,7 +3,6 @@ import { Link, NavLink, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
-import logo from '../../assets/brand/logo.png';
 
 const NAV_LINKS = [
   { label: 'Home', to: '/' },
@@ -19,7 +18,7 @@ export function Navbar() {
   const closeMenu = () => setMobileOpen(false);
 
   return (
-    <header className="sticky top-0 z-50 bg-[#002840] shadow-sm">
+    <header className="sticky top-0 z-50 bg-brand shadow-sm">
       <Container>
         <div className="flex h-20 items-center justify-between gap-6">
           <Link
@@ -27,7 +26,6 @@ export function Navbar() {
             className="flex items-center gap-2 text-white"
             aria-label="SSCM - Home"
           >
-            <img src={logo} alt="SSCM Logo" className="h-8 w-8" />
             <span className="text-xl font-semibold sm:text-2xl">SSCM</span>
           </Link>
 
@@ -37,7 +35,7 @@ export function Navbar() {
                 key={link.to}
                 to={link.to}
                 className={({ isActive }) =>
-                  `text-sm font-medium transition-colors hover:text-white/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-white/80 ${
+                  `text-sm font-medium transition-colors hover:text-white/90 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent ${
                     isActive || location.pathname === link.to
                       ? 'text-white underline decoration-white/80 underline-offset-4'
                       : 'text-white/80'
@@ -57,7 +55,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className="lg:hidden rounded-md p-2 text-white hover:bg-white/10"
+            className="lg:hidden rounded-[var(--radius)] p-2 text-white hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             onClick={() => setMobileOpen(!mobileOpen)}
             aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
             aria-expanded={mobileOpen}
@@ -69,7 +67,7 @@ export function Navbar() {
       </Container>
 
       {mobileOpen && (
-        <div id="mobile-menu" className="lg:hidden border-t border-white/10 bg-[#002840]">
+        <div id="mobile-menu" className="lg:hidden border-t border-white/10 bg-brand">
           <Container className="py-4">
             <nav className="flex flex-col gap-4">
               {NAV_LINKS.map((link) => (

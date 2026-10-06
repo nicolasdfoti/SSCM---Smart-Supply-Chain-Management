@@ -5,7 +5,7 @@ import { Container } from '../../../components/ui/Container';
 
 export function CTASection() {
   return (
-    <section className="bg-[#002840] py-16">
+    <section className="bg-brand py-16">
       <Container>
         <div className="text-center">
           <h2 className="mb-4 text-3xl font-semibold text-white sm:text-4xl">

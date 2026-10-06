@@ -31,26 +31,26 @@ const PROCESS_STEPS = [
 
 export function ProcessDetailed() {
   return (
-    <section className="bg-[#F7FAFC] py-16">
+    <section className="bg-bg py-16">
       <Container>
         <SectionHeading
           title="Nuestro proceso"
-          subtitle="Un enfoque metodológico para conectar su empresa con el proveedor adecuado"
+          subtitle="Un enfoque metodológico para conectar tu empresa con el proveedor adecuado"
         />
         <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {PROCESS_STEPS.map((step, index) => (
             <Reveal
               key={step.number}
               delay={index * 0.1}
-              className="group relative rounded-lg border border-slate-200 bg-white p-6 shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md"
+              className="relative rounded-[var(--radius)] border border-border bg-surface p-6 shadow-sm hover:shadow-md transition-shadow duration-300"
             >
-              <div className="mb-4 text-3xl font-semibold text-[#002840]/20">
+              <div className="mb-4 text-3xl font-semibold text-brand/20">
                 {step.number}
               </div>
-              <h3 className="mb-3 text-lg font-semibold text-slate-900">
+              <h3 className="mb-3 text-lg font-semibold text-heading">
                 {step.title}
               </h3>
-              <p className="text-sm leading-relaxed text-slate-600">
+              <p className="text-sm leading-relaxed text-muted">
                 {step.description}
               </p>
             </Reveal>
