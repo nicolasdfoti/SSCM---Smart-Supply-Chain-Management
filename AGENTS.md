@@ -84,6 +84,15 @@ The repository is organized as a monorepo:
 sscm/
 ├── frontend/
 ├── backend/
+│   ├── app/
+│   │   ├── core/
+│   │   ├── routers/
+│   │   ├── schemas/
+│   │   └── services/
+│   ├── tests/
+│   ├── requirements.txt
+│   ├── .env.example
+│   └── pytest.ini
 ├── database/
 ├── docs/
 ├── AGENTS.md
@@ -445,9 +454,9 @@ FastAPI API
     ↓
 Backend validation
     ↓
-PostgreSQL
+Email notification (Resend)
     ↓
-Email notification
+PostgreSQL (future, with admin panel)
 
 Never rely exclusively on frontend validation.
 
