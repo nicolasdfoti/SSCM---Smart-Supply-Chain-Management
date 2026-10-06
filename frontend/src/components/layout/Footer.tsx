@@ -19,16 +19,13 @@ export function Footer() {
 
           <nav className="flex flex-wrap gap-6 text-sm">
             <Link to="/" className="text-white/80 hover:text-white">
-              Home
-            </Link>
-            <Link to="/services" className="text-white/80 hover:text-white">
-              Services
+              Inicio
             </Link>
             <Link to="/about" className="text-white/80 hover:text-white">
-              About Us
+              Nosotros
             </Link>
             <Link to="/contact" className="text-white/80 hover:text-white">
-              Contact
+              Contacto
             </Link>
           </nav>
         </div>

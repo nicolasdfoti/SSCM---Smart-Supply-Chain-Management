@@ -24,9 +24,8 @@ The private dashboard will later be used to manage leads, clients, and other bus
 The initial public website will contain:
 
 - Home / Landing Page
-- About Us
-- Services
-- Contact
+- About Us (Nosotros)
+- Contact (Contacto)
 
 The future private application will contain:
 
@@ -171,7 +170,6 @@ Examples:
 
 - Home
 - About
-- Services
 - Contact
 - Login
 - Dashboard
@@ -222,9 +220,8 @@ React Router will be used for application routing.
 The initial public routes are:
 
 /
- /about
- /services
- /contact
+/about
+/contact
 
 A future administrative area will use routes under:
 

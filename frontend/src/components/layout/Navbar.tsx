@@ -5,10 +5,9 @@ import { Button } from '../ui/Button';
 import { Container } from '../ui/Container';
 
 const NAV_LINKS = [
-  { label: 'Home', to: '/' },
-  { label: 'Services', to: '/services' },
-  { label: 'About Us', to: '/about' },
-  { label: 'Contact', to: '/contact' },
+  { label: 'Inicio', to: '/' },
+  { label: 'Nosotros', to: '/about' },
+  { label: 'Contacto', to: '/contact' },
 ];
 
 export function Navbar() {
@@ -24,7 +23,7 @@ export function Navbar() {
           <Link
             to="/"
             className="flex items-center gap-2 text-white"
-            aria-label="SSCM - Home"
+            aria-label="SSCM - Inicio"
           >
             <span className="text-xl font-semibold sm:text-2xl">SSCM</span>
           </Link>
@@ -49,7 +48,7 @@ export function Navbar() {
 
           <div className="hidden lg:flex items-center gap-4">
             <Button asChild variant="secondary" size="sm">
-              <Link to="/contact">Contact Us</Link>
+              <Link to="/contact">Contacto</Link>
             </Button>
           </div>
 
@@ -57,7 +56,7 @@ export function Navbar() {
             type="button"
             className="lg:hidden rounded-[var(--radius)] p-2 text-white hover:bg-white/10 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
             onClick={() => setMobileOpen(!mobileOpen)}
-            aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+            aria-label={mobileOpen ? 'Cerrar menú' : 'Abrir menú'}
             aria-expanded={mobileOpen}
             aria-controls="mobile-menu"
           >
@@ -82,7 +81,7 @@ export function Navbar() {
               ))}
               <Button asChild variant="secondary" size="sm" className="self-start">
                 <Link to="/contact" onClick={closeMenu}>
-                  Contact Us
+                  Contacto
                 </Link>
               </Button>
             </nav>

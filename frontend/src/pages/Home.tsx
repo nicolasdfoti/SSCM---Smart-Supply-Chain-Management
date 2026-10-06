@@ -1,15 +1,20 @@
 import { HeroSection } from './Home/components/HeroSection';
-import { ServicesPreview } from './Home/components/ServicesPreview';
+import { Timeline } from '../components/ui/Timeline';
 import { AboutPreview } from './Home/components/AboutPreview';
-import { CTASection } from './Home/components/CTASection';
+import { CTA } from '../components/ui/CTA';
 
 export default function Home() {
   return (
     <>
       <HeroSection />
-      <ServicesPreview />
+      <Timeline />
       <AboutPreview />
-      <CTASection />
+      <CTA
+        title="¿Buscás un proveedor para tu negocio?"
+        subtitle="Contanos qué necesitás y analizaremos cómo podemos ayudarte a encontrar el contacto adecuado para tu necesidad comercial."
+        buttonText="Solicitar asesoramiento"
+        href="/contact"
+      />
     </>
   );
 }
